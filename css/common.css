@@ -79,49 +79,54 @@ img {
     justify-content: space-between;
 }
 
-.fl-se {
+.fl-jse {
     justify-content: space-evenly;
 }
 
 
 /* 文字大小 */
 .fz-10 {
-    font-size: 10px;
+    font-size: 0.1rem;
 }
 
 .fz-11 {
-    font-size: 11px;
+    font-size: 0.11rem;
+}
+
+.fz-12{
+    font-size: 0.12rem;
 }
 
 .fz-13 {
-    font-size: 13px;
+    font-size: 0.13rem;
 }
 
 .fz-14 {
-    font-size: 14px;
+    font-size: 0.14rem;
 }
 
 .fz-15 {
-    font-size: 15px;
+    font-size: 0.15rem;
 }
 
 .fz-17 {
-    font-size: 17px;
+    font-size: 0.17rem;
 }
 
 .fz-18 {
-    font-size: 18px;
+    font-size: 0.18rem;
 }
 
 .fz-20 {
-    font-size: 20px;
+    font-size: 0.2rem;
 }
 
 .fz-24 {
-    font-size: 24px;
+    font-size: 0.24rem;
 }
-.fz-30{
-    font-size: 30px;
+
+.fz-30 {
+    font-size: 0.30rem;
 }
 
 
@@ -166,19 +171,27 @@ img {
     color: #FFEC18
 }
 
-.c-2F{
+.c-2F {
     color: #FF742F;
 }
 
-.c-66{
+.c-66 {
     color: #666666;
 }
 
 
 
 /* 文字粗细 */
+.f-w4 {
+    font-weight: 400;
+}
+
 .f-w5 {
     font-weight: 500;
+}
+
+.f-wb {
+    font-weight: bold;
 }
 
 
@@ -202,10 +215,13 @@ img {
 
 /* 其他 */
 
-.icon {
-    display: block
-}
-
 .hide {
     display: none;
+}
+
+
+/* 容器 */
+#app {
+    width: 100%;
+    height: 100%;
 }

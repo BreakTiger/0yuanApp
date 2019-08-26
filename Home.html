@@ -8,37 +8,221 @@
     <title>0元夺宝-首页</title>
     <script src="js/flexible.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <style>
         #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .TopBar {
             width: 100%;
-            height: 100%;
+            height: 0.64rem;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0rem;
+            z-index: 50;
+        }
+
+        .back {
+            width: 0.09rem;
+            height: 0.17rem;
+            background: rebeccapurple;
+            margin-left: 0.1rem;
+            margin-right: 1.37rem;
         }
 
         .floor-one {
             width: 100%;
             height: 3.53rem;
             background: url(image/h-bk.png) no-repeat center/100%;
-            /* background-size: 100% 100%; */
+            margin-top: 0.64rem;
+            position: relative;
+        }
+
+        .boxs {
+            width: 0.62rem;
+            height: 2.46rem;
+            background: rgba(208, 11, 43, 0.8);
+            position: absolute;
+            top: 0.1rem;
+        }
+
+        .left {
+            border-radius: 0 0.1rem 0.1rem 0;
+            left: 0rem;
+        }
+
+        .right {
+            border-radius: 0.1rem 0rem 0rem 0.1rem;
+            right: 0rem;
+        }
+
+        .left>div>span:last-child,
+        .right>div>span:last-child {
+            width: 100%;
+            text-align: center;
+        }
+
+        .icons {
+            display: block;
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+
+        .c-number {
+            font-weight: bold;
+            margin-top: -0.22rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .sign-line {
+            width: 3.51rem;
+            height: 0.47rem;
+            background: url(image/line-bk.png) no-repeat center/3.51rem;
+            position: absolute;
+            bottom: 0.15rem;
+        }
+
+        .sign-line>span {
+            width: 1.7rem;
+            margin-left: 1.36rem;
+        }
+
+        .mid {
+            width: 2.35rem;
+            height: 0.81rem;
+            position: absolute;
+            bottom: 0.75rem;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+
+
+
+
+        .floor-two {
+            width: 100%;
+            height: 0.53rem;
+            background: linear-gradient(0deg, rgba(254, 52, 76, 1) 0%, rgba(255, 68, 165, 1) 100%);
+            position: relative;
+        }
+
+        .floor-two>div {
+            width: 1.06rem;
+            height: 0.75rem;
+            /* background: black; */
+            position: absolute;
+            top: -0.11rem;
+        }
+
+        .floor-two>div:first-child {
+            left: 0.57rem;
+        }
+
+        .floor-two>div:last-child {
+            right: 0.57rem;
+        }
+
+        .chose {
+            background: url(image/c-bk.png) no-repeat center/1.06rem;
         }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <div class="floor-one">
-            <div class="left"></div>
-            <div class="right"></div>
-            <div class="mid"></div>
+        <div class="TopBar">
+            <i class="icon back"></i>
+            <span class="fz-18">0元夺宝</span>
         </div>
+        <div class="floor-one flex col fl-align">
+            <div class="left boxs flex col fl-jse">
+                <div class="flex col fl-align">
+                    <i class="icons coupons-icon"></i>
+                    <span class="c-number fz-12 c-64">112</span>
+                    <span class="fz-13 c-ff">夺宝券(张)</span>
+                </div>
+                <div class="flex col fl-align">
+                    <i class="icons mine-icon"></i>
+                    <span class="fz-13 c-ff">我的夺宝</span>
+                </div>
+                <div class="flex col fl-align">
+                    <i class="icons address-icon"></i>
+                    <span class="fz-13 c-ff">收货地址</span>
+                </div>
+            </div>
+            <div class="right boxs flex col fl-jse">
+                <div class="flex col fl-align">
+                    <i class="icons r-icon"></i>
+                    <span class="fz-13 c-ff">活动规则</span>
+                </div>
+                <div class="flex col fl-align">
+                    <i class="icons record-icon"></i>
+                    <span class="fz-13 c-ff">抽奖记录</span>
+                </div>
+                <div class="flex col fl-align">
+                    <i class="icons s-icon"></i>
+                    <span class="fz-13 c-ff">分享好友</span>
+                </div>
+            </div>
+
+            <!-- 轮播 -->
+            <div class="mid">
+                <!-- <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <span class="fz-13">Slide 1</span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="fz-13">Slide 2</span>
+                        </div>
+                        <div class="swiper-slide">
+                            <span class="fz-13">Slide 3 </span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- 公告 -->
+            <div class="sign-line flex fl-align">
+                <span class="fz-14 c-ff clamp1">邀请好友成功可获得夺宝券11111111111111111111</span>
+            </div>
+        </div>
+        <div class="floor-two fz-18 c-ff flex fl-align">
+            <div class="chose">
+                <span>正在进行</span>
+            </div>
+            <div>
+                <span>过往活动</span>
+            </div>
+        </div>
+        <div class="floor-three"></div>
 
 
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vant@2.1/lib/vant.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
 <script>
+    // var mySwiper = new Swiper('.swiper-container', {
+    //     direction: 'vertical', // 垂直切换选项
+    //     // loop: true, // 循环模式选项
+    // })
     new Vue({
-        el: "#app"
+        el: "#app",
+        data: {}
     })
 </script>
 
