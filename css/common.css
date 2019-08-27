@@ -220,5 +220,5 @@ img {
 /* 其他 */
 
 .hide {
-    display: none;
+    display: none !important;
 }

@@ -417,7 +417,7 @@
             <div class="floor-three">
                 <!-- 正在进行 -->
                 <div class="flex col fl-align">
-                    <div class="list-item-one flex">
+                    <div class="list-item-one flex" @click="toDetail">
                         <div class="left flex col fl-align">
                             <img src class="goods-img" />
                             <div class="join-header flex">
@@ -453,7 +453,7 @@
                                         </div> -->
                         </div>
                     </div>
-                    <div class="list-item-one flex">
+                    <div class="list-item-one flex" @click="toDetail">
                         <div class="left flex col fl-align">
                             <img src class="goods-img" />
                             <div class="join-header flex">
@@ -489,7 +489,7 @@
                                             </div> -->
                         </div>
                     </div>
-                    <div class="list-item-one flex">
+                    <div class="list-item-one flex" @click="toDetail">
                         <div class="left flex col fl-align">
                             <img src class="goods-img" />
                             <div class="join-header flex">
@@ -668,7 +668,10 @@
                 window.location.href = "Share.html"
             },
             gets: function () {},
-            closed: function () {}
+            closed: function () {},
+            toDetail:function(){
+                window.location.href = "Detail.html"
+            }
         }
 
     })
