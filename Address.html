@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>收获地址</title>
+    <script src="js/flexible.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <style>
+        #app {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .TopBar {
+            width: 100%;
+            height: 0.64rem;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back {
+            width: 0.2rem;
+            height: 0.2rem;
+            background: url(icon/back.png) no-repeat center/0.2rem;
+            margin-left: 0.2rem;
+        }
+
+        .add {
+            width: 0.2rem;
+            height: 0.2rem;
+            background: url(icon/add.png) no-repeat center/0.2rem;
+            margin-right: 0.2rem;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            background: #F3F4F6;
+            overflow: auto;
+        }
+
+        .empt {
+            margin-top: 1.89rem;
+        }
+
+        .add-bk {
+            display: block;
+            width: 0.95rem;
+            height: 0.95rem;
+            background: url(icon/emp.png) no-repeat center/0.95rem;
+            margin-bottom: 0.11rem;
+        }
+
+        .address-list {
+            width: 100%;
+            height: auto;
+            margin-top: 0.1rem;
+        }
+
+        .list-item {
+            width: 3.50rem;
+            /* height: 1.12rem; */
+            background: rgba(255, 255, 255, 1);
+            border-radius: 0.05rem;
+            margin-bottom: 0.2rem;
+            position: relative;
+        }
+
+        .choose {
+            width: 0.43rem;
+            height: 0.43rem;
+            background: url(icon/choose.png) no-repeat center/0.43rem;
+            position: absolute;
+            top: 0rem;
+            right: 0rem;
+        }
+
+        .line-one {
+            border-bottom: 0.01rem solid #E9EAEC;
+            padding-top: 0.17rem;
+            padding-bottom: 0.14rem;
+        }
+
+        .line-one>p {
+            margin-left: 0.12rem;
+        }
+
+        .line-one>p:first-child>span:first-child {
+            margin-right: 0.3rem;
+        }
+
+        .line-one>p:last-child {
+            width: 3.11rem;
+            margin-top: 0.13rem;
+        }
+
+        .line-two {
+            margin-left: 0.12rem;
+            margin-right: 0.13rem;
+            padding-top: 0.13rem;
+            padding-bottom: 0.12rem;
+        }
+
+        .ed-icon {
+            display: block;
+            width: 0.2rem;
+            height: 0.2rem;
+            background: url(icon/edtor.png) no-repeat center/0.2rem;
+            margin-right: 0.09rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="TopBar">
+            <i class="back"></i>
+            <span class="fz-18 hide">添加地址</span>
+            <span class="fz-18">选择地址</span>
+            <i class="add"></i>
+        </div>
+        <div class="content flex col fl-align">
+            <!-- 空 -->
+            <div class="empt flex col fl-align hide">
+                <i class="add-bk"></i>
+                <span class="fz-18 c-99">添加收货地址</span>
+            </div>
+            <div class="address-list flex col fl-align">
+                <div class="list-item">
+                    <i class="choose"></i>
+                    <div class="line-one">
+                        <p class="fz-15 c-33">
+                            <span>康小二</span>
+                            <span>15984112214</span>
+                        </p>
+                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
+                    </div>
+                    <div class="line-two flex fl-align fl-jsb">
+                        <span class="c-2F fz-13">默认地址</span>
+                        <div class="edtor flex fl-align">
+                            <i class="ed-icon"></i>
+                            <span class="fz-13 c-66">编辑</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="choose"></i>
+                    <div class="line-one">
+                        <p class="fz-15 c-33">
+                            <span>康小二</span>
+                            <span>15984112214</span>
+                        </p>
+                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
+                    </div>
+                    <div class="line-two flex fl-align fl-jsb">
+                        <span class="c-2F fz-13">默认地址</span>
+                        <div class="edtor flex fl-align">
+                            <i class="ed-icon"></i>
+                            <span class="fz-13 c-66">编辑</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="choose"></i>
+                    <div class="line-one">
+                        <p class="fz-15 c-33">
+                            <span>康小二</span>
+                            <span>15984112214</span>
+                        </p>
+                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
+                    </div>
+                    <div class="line-two flex fl-align fl-jsb">
+                        <span class="c-2F fz-13">默认地址</span>
+                        <div class="edtor flex fl-align">
+                            <i class="ed-icon"></i>
+                            <span class="fz-13 c-66">编辑</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="choose"></i>
+                    <div class="line-one">
+                        <p class="fz-15 c-33">
+                            <span>康小二</span>
+                            <span>15984112214</span>
+                        </p>
+                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
+                    </div>
+                    <div class="line-two flex fl-align fl-jsb">
+                        <span class="c-2F fz-13">默认地址</span>
+                        <div class="edtor flex fl-align">
+                            <i class="ed-icon"></i>
+                            <span class="fz-13 c-66">编辑</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <i class="choose"></i>
+                    <div class="line-one">
+                        <p class="fz-15 c-33">
+                            <span>康小二</span>
+                            <span>15984112214</span>
+                        </p>
+                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
+                    </div>
+                    <div class="line-two flex fl-align fl-jsb">
+                        <span class="c-2F fz-13">默认地址</span>
+                        <div class="edtor flex fl-align">
+                            <i class="ed-icon"></i>
+                            <span class="fz-13 c-66">编辑</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -13,12 +13,10 @@
     <style>
         #app {
             width: 100%;
-            height: auto;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: #f42053;
-            position: relative;
         }
 
         .TopBar {
@@ -27,24 +25,27 @@
             background: #ffffff;
             display: flex;
             align-items: center;
-            position: fixed;
-            top: 0rem;
-            z-index: 50;
         }
 
         .back {
-            width: 0.09rem;
-            height: 0.17rem;
-            background: rebeccapurple;
+            width: 0.2rem;
+            height: 0.2rem;
+            background: url(icon/back.png) no-repeat center/0.2rem;
             margin-left: 0.1rem;
-            margin-right: 1.37rem;
+            margin-right: 1.24rem;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            background: #F8275B;
+            overflow: auto;
         }
 
         .floor-one {
             width: 100%;
             height: 3.53rem;
             background: url(image/h-bk.png) no-repeat center/100%;
-            margin-top: 0.64rem;
             position: relative;
         }
 
@@ -109,6 +110,7 @@
             width: 100%;
             height: 100%;
         }
+
 
 
         /* 切换 */
@@ -295,284 +297,341 @@
             border-radius: 0.11rem;
             margin-left: 0.09rem;
         }
+
+        /* 遮罩 */
+        .cover {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0rem;
+            z-index: 200;
+        }
+
+        .coupons-box {
+            width: 3.25rem;
+            height: 3.72rem;
+            background: url(image/quan-bk.png) no-repeat center/3.25rem;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .coupon {
+            width: 2rem;
+            height: 0.99rem;
+            background: url(image/quan.png) no-repeat center/2rem;
+            margin-top: 0.95rem;
+        }
+
+        .coupon>span {
+            margin-left: 0.38rem;
+        }
+
+        .getBtn {
+            width: 2.52rem;
+            height: 0.75rem;
+            background: url(image/quan-btn.png) no-repeat center/2.52rem;
+            margin-top: 0.98rem;
+        }
+
+        .close {
+            width: 0.36rem;
+            height: 0.36rem;
+            background: url(icon/close.png) no-repeat center/0.36rem;
+            margin-top: 0.2rem;
+        }
     </style>
 </head>
 
 <body>
     <div id="app">
         <div class="TopBar">
-            <i class="icon back"></i>
+            <i class="back"></i>
             <span class="fz-18">0元夺宝</span>
         </div>
-        <div class="floor-one flex col fl-align">
-            <div class="left boxs flex col fl-jse">
-                <div class="flex col fl-align" @click="toCoupons">
-                    <i class="icons coupons-icon"></i>
-                    <span class="c-number fz-12 c-64">112</span>
-                    <span class="fz-13 c-ff">夺宝券(张)</span>
-                </div>
-                <div class="flex col fl-align" @click="toMine">
-                    <i class="icons mine-icon"></i>
-                    <span class="fz-13 c-ff">我的夺宝</span>
-                </div>
-                <div class="flex col fl-align" @click="toAddress">
-                    <i class="icons address-icon"></i>
-                    <span class="fz-13 c-ff">收货地址</span>
-                </div>
-            </div>
-            <div class="right boxs flex col fl-jse">
-                <div class="flex col fl-align" @click="toRules">
-                    <i class="icons r-icon"></i>
-                    <span class="fz-13 c-ff">活动规则</span>
-                </div>
-                <div class="flex col fl-align" @click="toRecord">
-                    <i class="icons record-icon"></i>
-                    <span class="fz-13 c-ff">抽奖记录</span>
-                </div>
-                <div class="flex col fl-align" @click="toShare">
-                    <i class="icons s-icon"></i>
-                    <span class="fz-13 c-ff">分享好友</span>
-                </div>
-            </div>
+        <div class="content">
 
-            <!-- 轮播 -->
-            <div class="mid">
-                <!-- <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <span class="fz-13">Slide 1</span>
-                        </div>
-                        <div class="swiper-slide">
-                            <span class="fz-13">Slide 2</span>
-                        </div>
-                        <div class="swiper-slide">
-                            <span class="fz-13">Slide 3 </span>
-                        </div>
+            <div class="floor-one flex col fl-align">
+                <div class="left boxs flex col fl-jse">
+                    <div class="flex col fl-align" @click="toCoupons">
+                        <i class="icons coupons-icon"></i>
+                        <span class="c-number fz-12 c-64">112</span>
+                        <span class="fz-13 c-ff">夺宝券(张)</span>
                     </div>
-                </div> -->
-            </div>
-
-            <!-- 公告 -->
-            <div class="sign-line flex fl-align">
-                <span class="fz-14 c-ff clamp1">邀请好友成功可获得夺宝券11111111111111111111</span>
-            </div>
-        </div>
-
-        <div class="floor-two fz-18 c-ff flex fl-align">
-            <div class="chose flex col fl-align">
-                <span>正在进行</span>
-            </div>
-            <div class="flex col fl-align">
-                <span>过往活动</span>
-            </div>
-        </div>
-
-        <div class="floor-three">
-            <!-- 正在进行 -->
-            <div class="flex col fl-align">
-                <div class="list-item-one flex">
-                    <div class="left flex col fl-align">
-                        <img src class="goods-img" />
-                        <div class="join-header flex">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <span class="fz-13">...</span>
-                        </div>
+                    <div class="flex col fl-align" @click="toMine">
+                        <i class="icons mine-icon"></i>
+                        <span class="fz-13 c-ff">我的夺宝</span>
                     </div>
-
-                    <div class="right flex col">
-                        <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                        <div class="price_join flex fl-jsb">
-                            <span class="fz-18 c-34">
-                                ￥
-                                <span class="fz-24">0</span>
-                            </span>
-                            <div class="joinBtn c-ff fz-15">马上夺宝</div>
-                        </div>
-                        <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
-                            <span>￥2250.00</span>
-                            <span>查看详情</span>
-                        </p>
-                        <p class="joinnum flex fl-align fl-jsb fz-11">
-                            <span class="c-64">已有2600人参与</span>
-                            <span>5000</span>
-                        </p>
-                        <!-- 进度条 -->
-                        <!-- <div class="press">
-                                    <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
-                                </div> -->
+                    <div class="flex col fl-align" @click="toAddress">
+                        <i class="icons address-icon"></i>
+                        <span class="fz-13 c-ff">收货地址</span>
                     </div>
                 </div>
-                <div class="list-item-one flex">
-                    <div class="left flex col fl-align">
-                        <img src class="goods-img" />
-                        <div class="join-header flex">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <span class="fz-13">...</span>
-                        </div>
+                <div class="right boxs flex col fl-jse">
+                    <div class="flex col fl-align" @click="toRules">
+                        <i class="icons r-icon"></i>
+                        <span class="fz-13 c-ff">活动规则</span>
                     </div>
-
-                    <div class="right flex col">
-                        <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                        <div class="price_join flex fl-jsb">
-                            <span class="fz-18 c-34">
-                                ￥
-                                <span class="fz-24">0</span>
-                            </span>
-                            <div class="joinBtn c-ff fz-15">马上夺宝</div>
-                        </div>
-                        <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
-                            <span>￥2250.00</span>
-                            <span>查看详情</span>
-                        </p>
-                        <p class="joinnum flex fl-align fl-jsb fz-11">
-                            <span class="c-64">已有2600人参与</span>
-                            <span>5000</span>
-                        </p>
-                        <!-- 进度条 -->
-                        <!-- <div class="press">
-                                        <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
-                                    </div> -->
+                    <div class="flex col fl-align" @click="toRecord">
+                        <i class="icons record-icon"></i>
+                        <span class="fz-13 c-ff">抽奖记录</span>
+                    </div>
+                    <div class="flex col fl-align" @click="toShare">
+                        <i class="icons s-icon"></i>
+                        <span class="fz-13 c-ff">分享好友</span>
                     </div>
                 </div>
-                <div class="list-item-one flex">
-                    <div class="left flex col fl-align">
-                        <img src class="goods-img" />
-                        <div class="join-header flex">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <span class="fz-13">...</span>
-                        </div>
-                    </div>
 
-                    <div class="right flex col">
-                        <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                        <div class="price_join flex fl-jsb">
-                            <span class="fz-18 c-34">
-                                ￥
-                                <span class="fz-24">0</span>
-                            </span>
-                            <div class="joinBtn c-ff fz-15">马上夺宝</div>
+                <!-- 轮播 -->
+                <div class="mid">
+                    <!-- <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <span class="fz-13">Slide 1</span>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <span class="fz-13">Slide 2</span>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <span class="fz-13">Slide 3 </span>
+                                    </div>
+                                </div>
+                            </div> -->
+                </div>
+
+                <!-- 公告 -->
+                <div class="sign-line flex fl-align">
+                    <span class="fz-14 c-ff clamp1">邀请好友成功可获得夺宝券11111111111111111111</span>
+                </div>
+            </div>
+
+            <div class="floor-two fz-18 c-ff flex fl-align">
+                <div class="chose flex col fl-align">
+                    <span>正在进行</span>
+                </div>
+                <div class="flex col fl-align">
+                    <span>过往活动</span>
+                </div>
+            </div>
+
+            <div class="floor-three">
+                <!-- 正在进行 -->
+                <div class="flex col fl-align">
+                    <div class="list-item-one flex">
+                        <div class="left flex col fl-align">
+                            <img src class="goods-img" />
+                            <div class="join-header flex">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <span class="fz-13">...</span>
+                            </div>
                         </div>
-                        <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
-                            <span>￥2250.00</span>
-                            <span>查看详情</span>
-                        </p>
-                        <p class="joinnum flex fl-align fl-jsb fz-11">
-                            <span class="c-64">已有2600人参与</span>
-                            <span>5000</span>
-                        </p>
-                        <!-- 进度条 -->
-                        <!-- <div class="press">
+
+                        <div class="right flex col">
+                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
+                            <div class="price_join flex fl-jsb">
+                                <span class="fz-18 c-34">
+                                    ￥
+                                    <span class="fz-24">0</span>
+                                </span>
+                                <div class="joinBtn c-ff fz-15">马上夺宝</div>
+                            </div>
+                            <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
+                                <span>￥2250.00</span>
+                                <span>查看详情</span>
+                            </p>
+                            <p class="joinnum flex fl-align fl-jsb fz-11">
+                                <span class="c-64">已有2600人参与</span>
+                                <span>5000</span>
+                            </p>
+                            <!-- 进度条 -->
+                            <!-- <div class="press">
                                             <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
                                         </div> -->
+                        </div>
+                    </div>
+                    <div class="list-item-one flex">
+                        <div class="left flex col fl-align">
+                            <img src class="goods-img" />
+                            <div class="join-header flex">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <span class="fz-13">...</span>
+                            </div>
+                        </div>
+
+                        <div class="right flex col">
+                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
+                            <div class="price_join flex fl-jsb">
+                                <span class="fz-18 c-34">
+                                    ￥
+                                    <span class="fz-24">0</span>
+                                </span>
+                                <div class="joinBtn c-ff fz-15">马上夺宝</div>
+                            </div>
+                            <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
+                                <span>￥2250.00</span>
+                                <span>查看详情</span>
+                            </p>
+                            <p class="joinnum flex fl-align fl-jsb fz-11">
+                                <span class="c-64">已有2600人参与</span>
+                                <span>5000</span>
+                            </p>
+                            <!-- 进度条 -->
+                            <!-- <div class="press">
+                                                <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
+                                            </div> -->
+                        </div>
+                    </div>
+                    <div class="list-item-one flex">
+                        <div class="left flex col fl-align">
+                            <img src class="goods-img" />
+                            <div class="join-header flex">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <img src="" alt="">
+                                <span class="fz-13">...</span>
+                            </div>
+                        </div>
+
+                        <div class="right flex col">
+                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
+                            <div class="price_join flex fl-jsb">
+                                <span class="fz-18 c-34">
+                                    ￥
+                                    <span class="fz-24">0</span>
+                                </span>
+                                <div class="joinBtn c-ff fz-15">马上夺宝</div>
+                            </div>
+                            <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
+                                <span>￥2250.00</span>
+                                <span>查看详情</span>
+                            </p>
+                            <p class="joinnum flex fl-align fl-jsb fz-11">
+                                <span class="c-64">已有2600人参与</span>
+                                <span>5000</span>
+                            </p>
+                            <!-- 进度条 -->
+                            <!-- <div class="press">
+                                                    <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
+                                                </div> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 过往活动 -->
+                <div class="flex col fl-align hide">
+                    <div class="list-item-two flex col fl-align">
+
+                        <div class="good flex">
+                            <img src="" alt="" class="good-img">
+                            <div class="info flex col">
+                                <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
+                                <span class="finshed fz-15 c-ff">已结束</span>
+                                <span class="price c-34 fz-18">
+                                    ￥
+                                    <span class="fz-24">0</span>
+                                </span>
+                                <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
+                                    <span class="oprice">￥2250.00</span>
+                                    <span>查看详情</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="win flex fl-align fl-jsb">
+                            <div class="winner fz-14">
+                                <span class="c-55">获奖者:</span>
+                                <span class="w-phone c-ff">158****123</span>
+                            </div>
+                            <div class="code fz-14">
+                                <span class="c-55">中奖码：</span>
+                                <span class="w-code c-ff">123</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="list-item-two flex col fl-align">
+
+                        <div class="good flex">
+                            <img src="" alt="" class="good-img">
+                            <div class="info flex col">
+                                <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
+                                <span class="finshed fz-15 c-ff">已结束</span>
+                                <span class="price c-34 fz-18">
+                                    ￥
+                                    <span class="fz-24">0</span>
+                                </span>
+                                <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
+                                    <span class="oprice">￥2250.00</span>
+                                    <span>查看详情</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="win flex fl-align fl-jsb">
+                            <div class="winner fz-14">
+                                <span class="c-55">获奖者:</span>
+                                <span class="w-phone c-ff">158****123</span>
+                            </div>
+                            <div class="code fz-14">
+                                <span class="c-55">中奖码：</span>
+                                <span class="w-code c-ff">123</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="list-item-two flex col fl-align">
+
+                        <div class="good flex">
+                            <img src="" alt="" class="good-img">
+                            <div class="info flex col">
+                                <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
+                                <span class="finshed fz-15 c-ff">已结束</span>
+                                <span class="price c-34 fz-18">
+                                    ￥
+                                    <span class="fz-24">0</span>
+                                </span>
+                                <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
+                                    <span class="oprice">￥2250.00</span>
+                                    <span>查看详情</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="win flex fl-align fl-jsb">
+                            <div class="winner fz-14">
+                                <span class="c-55">获奖者:</span>
+                                <span class="w-phone c-ff">158****123</span>
+                            </div>
+                            <div class="code fz-14">
+                                <span class="c-55">中奖码：</span>
+                                <span class="w-code c-ff">123</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <!-- 过往活动 -->
-            <div class="flex col fl-align hide">
-                <div class="list-item-two flex col fl-align">
 
-                    <div class="good flex">
-                        <img src="" alt="" class="good-img">
-                        <div class="info flex col">
-                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                            <span class="finshed fz-15 c-ff">已结束</span>
-                            <span class="price c-34 fz-18">
-                                ￥
-                                <span class="fz-24">0</span>
-                            </span>
-                            <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
-                                <span class="oprice">￥2250.00</span>
-                                <span>查看详情</span>
-                            </p>
-                        </div>
+            <div class="cover flex col fl-align hide">
+                <div class="coupons-box flex col fl-align">
+                    <div class="coupon flex fl-align">
+                        <span class="fz-40 c-34">112</span>
                     </div>
-
-                    <div class="win flex fl-align fl-jsb">
-                        <div class="winner fz-14">
-                            <span class="c-55">获奖者:</span>
-                            <span class="w-phone c-ff">158****123</span>
-                        </div>
-                        <div class="code fz-14">
-                            <span class="c-55">中奖码：</span>
-                            <span class="w-code c-ff">123</span>
-                        </div>
-                    </div>
-
+                    <div class="getBtn" @click="gets"></div>
                 </div>
-                <div class="list-item-two flex col fl-align">
-
-                    <div class="good flex">
-                        <img src="" alt="" class="good-img">
-                        <div class="info flex col">
-                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                            <span class="finshed fz-15 c-ff">已结束</span>
-                            <span class="price c-34 fz-18">
-                                ￥
-                                <span class="fz-24">0</span>
-                            </span>
-                            <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
-                                <span class="oprice">￥2250.00</span>
-                                <span>查看详情</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="win flex fl-align fl-jsb">
-                        <div class="winner fz-14">
-                            <span class="c-55">获奖者:</span>
-                            <span class="w-phone c-ff">158****123</span>
-                        </div>
-                        <div class="code fz-14">
-                            <span class="c-55">中奖码：</span>
-                            <span class="w-code c-ff">123</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="list-item-two flex col fl-align">
-
-                    <div class="good flex">
-                        <img src="" alt="" class="good-img">
-                        <div class="info flex col">
-                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                            <span class="finshed fz-15 c-ff">已结束</span>
-                            <span class="price c-34 fz-18">
-                                ￥
-                                <span class="fz-24">0</span>
-                            </span>
-                            <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
-                                <span class="oprice">￥2250.00</span>
-                                <span>查看详情</span>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="win flex fl-align fl-jsb">
-                        <div class="winner fz-14">
-                            <span class="c-55">获奖者:</span>
-                            <span class="w-phone c-ff">158****123</span>
-                        </div>
-                        <div class="code fz-14">
-                            <span class="c-55">中奖码：</span>
-                            <span class="w-code c-ff">123</span>
-                        </div>
-                    </div>
-
-                </div>
-
+                <i class="close" @click="closed"></i>
             </div>
+
+
         </div>
 
 
@@ -607,7 +666,9 @@
             },
             toShare: function () {
                 window.location.href = "Share.html"
-            }
+            },
+            gets: function () {},
+            closed: function () {}
         }
 
     })
