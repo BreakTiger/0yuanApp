@@ -111,3 +111,11 @@
     background: url(../icon/edtor.png) no-repeat center/0.2rem;
     margin-right: 0.09rem;
 }
+
+.add-bk {
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    background: url(../icon/emp.png) no-repeat center/0.95rem;
+    margin-bottom: 0.11rem;
+}
