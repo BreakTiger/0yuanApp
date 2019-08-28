@@ -188,10 +188,9 @@
 
         .joinnum {
             margin-bottom: 0.08rem;
-
         }
 
-
+        /* 进度条 */
         .press {
             width: 2rem;
             height: 0.15rem;
@@ -370,17 +369,17 @@
             </div>
 
             <div class="floor-two fz-18 c-ff flex fl-align">
-                <div class="chose flex col fl-align">
+                <div class="chose flex col fl-align" @click="changes(1)">
                     <span>正在进行</span>
                 </div>
-                <div class="flex col fl-align">
+                <div class="flex col fl-align" @click="changes(2)">
                     <span>过往活动</span>
                 </div>
             </div>
 
             <div class="floor-three">
                 <!-- 正在进行 -->
-                <div class="flex col fl-align">
+                <div class="flex col fl-align" v-if="status==1">
                     <div class="list-item-one flex" @click="toDetail">
                         <div class="left flex col fl-align">
                             <img src class="goods-img" />
@@ -492,7 +491,7 @@
 
                 </div>
                 <!-- 过往活动 -->
-                <div class="flex col fl-align hide">
+                <div class="flex col fl-align" v-if="status==2">
                     <div class="list-item-two flex col fl-align">
 
                         <div class="good flex">
@@ -584,6 +583,7 @@
 
                     </div>
                 </div>
+
             </div>
 
             <div class="cover flex col fl-align hide">
@@ -633,11 +633,37 @@
     // 实例化
     new Vue({
         el: "#app",
-        data: {},
+        data: {
+            status: 1,
+            list_one:[],
+            list_two:[]
+        },
         created: function () {
-
+            this.getalist(1) //正在进行的活动列表
         },
         methods: { //定义的方法
+
+
+            // 切换
+            changes: function (e) {
+                console.log(e);
+                // 更新status
+                this.status = e;
+                // 调用方法
+                this.getalist(e)
+
+            },
+
+            // 获取活动列表
+            getalist: function (e) {
+                let param = {
+                    status: e
+                }
+                console.log('参数为：', param);
+
+            },
+
+            // 以下为：跳转
             toCoupons: function () {},
             toMine: function () {
                 window.location.href = "Mine.html"
