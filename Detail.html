@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情</title>
+    <script src="js/flexible.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        .back {
+            margin-right: 0.7rem;
+        }
+
+        .contents {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .top-box {
+            width: 100%;
+            height: 3.75rem;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-container .swiper-slide>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 
+
+        .top-box .swiper-container .swiper-wrapper .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+
+        .top-box .swiper-container .swiper-wrapper .swiper-slide>img {
+            width: 100%;
+            height: 100%;
+        } */
+
+        /* .swiper-pagination {
+            bottom: 0rem;
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 0.27rem;
+            height: 0.05rem;
+            border-radius: 0%;
+            background: #fff;
+        } */
+
+        .line-two {
+            background: linear-gradient(to right, #F61F38, #F632DA)
+        }
+
+        .line-two>span:first-child {
+            margin-left: 0.13rem;
+        }
+
+        .line-two>span:last-child {
+            margin-right: 0.13rem;
+            line-height: 0.45rem;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .button-line-one {
+            width: 100%;
+            height: 0.5rem;
+            position: fixed;
+            bottom: 0rem;
+        }
+
+        .button-line-one>span {
+            display: block;
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            line-height: 0.52rem;
+        }
+
+        .button-line-one>span:first-child {
+            background: linear-gradient(to right, #FFB03F, #FF742F);
+        }
+
+        .button-line-one>span:last-child {
+            background: linear-gradient(to right, #F61F38, #F632DA);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="TopBar">
+            <i class="back"></i>
+            <span class="fz-18">Midea/美的 KFR-35GW</span>
+        </div>
+        <div class="contents">
+            <div class="top-box">
+                <!-- <div class="swiper-container">
+                    <div class="swiper-wrapper flex col fl-align">
+                        <div class="swiper-slide">side1</div>
+                        <div class="swiper-slide">side2</div>
+                        <div class="swiper-slide">side3</div>
+                        
+                    </div>
+                </div> -->
+            </div>
+            <div class="line-two flex fl-jsb">
+                <span class="fz-18 c-f0">
+                    ￥<span class="fz-30">0.00</span>
+                </span>
+                <span class="fz-15 c-ff">原价￥560.00</span>
+            </div>
+
+            
+
+        </div>
+
+
+        <div class="button-line-one flex fl-align">
+            <span class="fz-18 c-ff">分享好友</span>
+            <span class="fz-18 c-ff">马上夺宝</span>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/schedule.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+    $(function () {
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    })
+</script>
+<script></script>
+
+</html>
