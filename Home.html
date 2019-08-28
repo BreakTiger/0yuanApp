@@ -9,44 +9,14 @@
     <script src="js/flexible.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/icon.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <link rel="stylesheet" href="css/schedule.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
     <style>
-        #app {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .TopBar {
-            width: 100%;
-            height: 0.64rem;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-        }
-
-        .back {
-            width: 0.2rem;
-            height: 0.2rem;
-            background: url(icon/back.png) no-repeat center/0.2rem;
-            margin-left: 0.1rem;
-            margin-right: 1.24rem;
-        }
-
-        .content {
+        .contents {
             width: 100%;
             height: 100%;
             background: #F8275B;
             overflow: auto;
-        }
-
-        .floor-one {
-            width: 100%;
-            height: 3.53rem;
-            background: url(image/h-bk.png) no-repeat center/100%;
-            position: relative;
         }
 
         .boxs {
@@ -85,13 +55,6 @@
             margin-bottom: 0.1rem;
         }
 
-        .sign-line {
-            width: 3.51rem;
-            height: 0.47rem;
-            background: url(image/line-bk.png) no-repeat center/3.51rem;
-            position: absolute;
-            bottom: 0.15rem;
-        }
 
         .sign-line>span {
             width: 1.7rem;
@@ -111,7 +74,16 @@
             height: 100%;
         }
 
+        .swiper-container .swiper-slide {
+            width: 100%;
+            height: 0.22rem !important;
+            background: #AC0019;
+            border-radius: 0.11rem;
+        }
 
+        .swiper-slide>span {
+            width: 1.96rem;
+        }
 
         /* 切换 */
         .floor-two {
@@ -216,6 +188,23 @@
 
         .joinnum {
             margin-bottom: 0.08rem;
+
+        }
+
+
+        .press {
+            width: 2rem;
+            height: 0.15rem;
+        }
+
+        #scheduleX {
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 0.08rem !important;
+        }
+
+        #scheduleX .xList {
+            background: linear-gradient(to right, #FF742F, #FE2D64)
         }
 
         /* 过往活动 */
@@ -308,39 +297,11 @@
             z-index: 200;
         }
 
-        .coupons-box {
-            width: 3.25rem;
-            height: 3.72rem;
-            background: url(image/quan-bk.png) no-repeat center/3.25rem;
-            margin-top: 1.5rem;
-            position: relative;
-        }
-
-        .coupon {
-            width: 2rem;
-            height: 0.99rem;
-            background: url(image/quan.png) no-repeat center/2rem;
-            margin-top: 0.95rem;
-        }
-
         .coupon>span {
             margin-left: 0.38rem;
         }
-
-        .getBtn {
-            width: 2.52rem;
-            height: 0.75rem;
-            background: url(image/quan-btn.png) no-repeat center/2.52rem;
-            margin-top: 0.98rem;
-        }
-
-        .close {
-            width: 0.36rem;
-            height: 0.36rem;
-            background: url(icon/close.png) no-repeat center/0.36rem;
-            margin-top: 0.2rem;
-        }
     </style>
+
 </head>
 
 <body>
@@ -349,7 +310,7 @@
             <i class="back"></i>
             <span class="fz-18">0元夺宝</span>
         </div>
-        <div class="content">
+        <div class="contents">
 
             <div class="floor-one flex col fl-align">
                 <div class="left boxs flex col fl-jse">
@@ -384,19 +345,22 @@
 
                 <!-- 轮播 -->
                 <div class="mid">
-                    <!-- <div class="swiper-container">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <span class="fz-13">Slide 1</span>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <span class="fz-13">Slide 2</span>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <span class="fz-13">Slide 3 </span>
-                                    </div>
-                                </div>
-                            </div> -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide flex fl-align">
+                                <i class="t-icon"></i>
+                                <span class="fz-12 c-2d clamp1">kangkang刚刚参加了扫地机器人夺宝</span>
+                            </div>
+                            <div class="swiper-slide flex fl-align">
+                                <i class="t-icon"></i>
+                                <span class="fz-12 c-2d clamp1">kangkang刚刚参加了扫地机器人夺宝</span>
+                            </div>
+                            <div class="swiper-slide flex fl-align">
+                                <i class="t-icon"></i>
+                                <span class="fz-12 c-2d clamp1">kangkang刚刚参加了扫地机器人夺宝</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 公告 -->
@@ -448,9 +412,9 @@
                                 <span>5000</span>
                             </p>
                             <!-- 进度条 -->
-                            <!-- <div class="press">
-                                            <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
-                                        </div> -->
+                            <div class="press">
+                                <div id="scheduleX"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="list-item-one flex" @click="toDetail">
@@ -484,9 +448,9 @@
                                 <span>5000</span>
                             </p>
                             <!-- 进度条 -->
-                            <!-- <div class="press">
-                                                <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
-                                            </div> -->
+                            <div class="press">
+                                <div id="scheduleX"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="list-item-one flex" @click="toDetail">
@@ -520,11 +484,12 @@
                                 <span>5000</span>
                             </p>
                             <!-- 进度条 -->
-                            <!-- <div class="press">
-                                                    <van-progress :percentage="75" color="linear-gradient(to right, #FF742F, #FE2D64)" />
-                                                </div> -->
+                            <div class="press">
+                                <div id="scheduleX"></div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                 <!-- 过往活动 -->
                 <div class="flex col fl-align hide">
@@ -631,25 +596,47 @@
                 <i class="close" @click="closed"></i>
             </div>
 
-
         </div>
-
-
     </div>
 </body>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/schedule.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+<script src="js/swiper.min.js"></script>
 <script>
-    //swiper
-    // var mySwiper = new Swiper('.swiper-container', {
-    //     direction: 'vertical', // 垂直切换选项
-    //     // loop: true, // 循环模式选项
-    // })
+    $(function () {
 
+        // 进度条
+        scheduleX({
+            fulfill: 60, //选择数
+            listAll: 100, //总数
+            speed: 25, //动画速度，可选，默认25,越小越快
+            again: false, //选择数改变动画是否从零开始，默认true从零开始
+            bgColor: "#FFE5DA", //底部颜色
+            listColor: "", //伸缩条颜色，默认原谅绿
+            scWidth: "200", //进度条宽度
+            scHeight: "15" //进度条高度
+        });
+
+        // 轮播
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true,
+            direction: 'vertical', // 垂直切换选项
+            loop: true, // 循环模式选项
+            slidesPerView: 3,
+            spaceBetween: 5,
+
+        })
+    })
+</script>
+<script>
     // 实例化
     new Vue({
         el: "#app",
         data: {},
+        created: function () {
+
+        },
         methods: { //定义的方法
             toCoupons: function () {},
             toMine: function () {
@@ -669,7 +656,7 @@
             },
             gets: function () {},
             closed: function () {},
-            toDetail:function(){
+            toDetail: function () {
                 window.location.href = "Detail.html"
             }
         }

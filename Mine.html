@@ -9,32 +9,9 @@
     <script src="js/flexible.min.js"></script>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/schedule.css">
     <style>
-        #app {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .TopBar {
-            width: 100%;
-            height: 0.64rem;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-        }
-
-        .back {
-            width: 0.2rem;
-            height: 0.2rem;
-            background: url(icon/back.png) no-repeat center/0.2rem;
-            margin-left: 0.1rem;
-            margin-right: 1.24rem;
-        }
-
-        .content {
+        .contents {
             width: 100%;
             height: 100%;
             overflow: auto;
@@ -154,13 +131,31 @@
             height: 0.2rem;
             text-align: center;
             line-height: 0.2rem;
-            background: rgba(255, 116, 47, 1);
+            background: #FF742F;
+            /* background: #FE2D64; */
+            /* background: #E91C34; */
             border-radius: 0.1rem;
             margin-top: 0.06rem;
         }
 
+       
+
         .price-detail {
             width: 2rem;
+            margin: 0.12rem 0;
+        }
+
+        .press {
+            width: 2rem;
+            height: 0.15rem;
+        }
+
+        #scheduleX {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        #scheduleX .xList{
+            background: linear-gradient(to right,#FF742F,#FE2D64);
         }
     </style>
 </head>
@@ -171,7 +166,7 @@
             <i class="back"></i>
             <span class="fz-18">我的夺宝</span>
         </div>
-        <div class="content">
+        <div class="contents">
             <div class="line-one flex fl-align">
                 <i class="coupon"></i>
                 <span class="fz-14 c-ff">夺宝券</span>
@@ -218,18 +213,39 @@
                             <span>￥2250.00</span>
                             <span>查看详情</span>
                         </p>
+                        <div class="press">
+                            <div id="scheduleX"></div>
+                        </div>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
-
-        <!-- <div >
-            
-        </div> -->
     </div>
 </body>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/schedule.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script>
+    $(function () {
+        scheduleX({
+            fulfill: 60, //选择数
+            listAll: 100, //总数
+            speed: 25, //动画速度，可选，默认25,越小越快
+            again: false, //选择数改变动画是否从零开始，默认true从零开始
+            bgColor: "#FFE5DA", //底部颜色
+            listColor: "", //伸缩条颜色，默认原谅绿
+            scWidth: "200", //进度条宽度
+            scHeight: "15" //进度条高度
+        });
+    })
+</script>
+<script>
+    var vue = new Vue({
+        el:'#app',
+        data:{},
+        created:function(){},
+        methods:{}
+    })
+</script>
 
 </html>
