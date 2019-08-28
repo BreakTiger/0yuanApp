@@ -87,3 +87,27 @@
     background: url(../image/h-bk.png) no-repeat center/100%;
     position: relative;
 }
+
+.add {
+    width: 0.2rem;
+    height: 0.2rem;
+    background: url(../icon/add.png) no-repeat center/0.2rem;
+    margin-right: 0.2rem;
+}
+
+.choose {
+    width: 0.43rem;
+    height: 0.43rem;
+    background: url(../icon/choose.png) no-repeat center/0.43rem;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+}
+
+.ed-icon {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: url(../icon/edtor.png) no-repeat center/0.2rem;
+    margin-right: 0.09rem;
+}
