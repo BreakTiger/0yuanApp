@@ -119,3 +119,18 @@
     background: url(../icon/emp.png) no-repeat center/0.95rem;
     margin-bottom: 0.11rem;
 }
+
+.del{
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: url(../icon/del.png) no-repeat center/0.2rem;
+}
+
+.gos {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: url(../icon/go.png) no-repeat center/0.2rem;
+    margin-right: 0.08rem;
+}
