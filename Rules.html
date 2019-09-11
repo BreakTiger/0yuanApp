@@ -6,127 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>活动规则</title>
-    <script src="js/flexible.min.js"></script>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/icon.css">
+    <script src="/Public/app_treasure/js/flexible.min.js"></script>
+    <link rel="stylesheet" href="/Public/app_treasure/css/common.css">
+    <link rel="stylesheet" href="/Public/app_treasure/css/icon.css">
     <style>
-        .contents {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(#FF3267, #FF4444);
-            overflow: auto;
-            position: relative;
-
-        }
-
-        .floor-one-bk {
-            width: 100%;
-            height: 4.67rem;
-            background: url(image/r-bk.png) no-repeat center/100%;
-        }
-
-        .rules-content {
-            width: 3.51rem;
-            height: 6.25rem;
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 0.03rem 0.19rem 0.01rem rgba(255, 223, 178, 1);
-            border-radius: 0.1rem;
-            position: absolute;
-            top: 0.18rem;
-            margin-bottom: 1.22rem;
-        }
-
-        .rules-content>span:nth-child(1) {
-            margin-top: 0.2rem;
-        }
-
-        .title {
-            margin-left: 0.41rem;
-            margin-bottom: 0.12rem;
-        }
-
-        .list-conetnt {
-            width: 100%;
-        }
-
-        .list-conetnt .list-item {
-            margin-bottom: 0.16rem;
-        }
-
-        .list-conetnt .list-item>span {
-            display: block;
-            width: 0.15rem;
-            height: 0.15rem;
-            text-align: center;
-            line-height: 0.15rem;
-            border-radius: 50%;
-            margin-left: 0.19rem;
-            margin-right: 0.07rem;
-        }
-
-        .serial-one {
-            background: #FE2D64;
-        }
-
-        .serial-two {
-            background: #FFB03F;
-        }
-
-        .serial-three{
-            background: #FF742F;
-        }
-
-        .infos {
-            width: 2.82rem;
-        }
+        body,html {height: auto;}
+        .contents {background: linear-gradient(#FF3267, #FF4444);position: relative;}
+        .contents>img {width: 100%;position: absolute;top: 0rem;}
+        .rules-content {width: 90%;box-shadow: 0 0.03rem 0.19rem 0.01rem #ffdfb2;border-radius: 0.1rem;margin: 0.2rem;z-index: 3;}
+        .rules-content>span:nth-child(1) {margin-top: 0.2rem;}
+        .title {margin-left: 0.41rem;margin-bottom: 0.12rem;}
+        .list-item {margin-bottom: 0.16rem;}
+        .list-item>span {display: block;width: 0.15rem;height: 0.15rem;text-align: center;line-height: 0.15rem;border-radius: 50%;margin-left: 0.19rem;margin-right: 0.07rem;}
+        .infos {width: 2.82rem;}
     </style>
 </head>
-
 <body>
     <div id="app">
-        <div class="TopBar">
-            <i class="back"></i>
-            <span class="fz-18">活动规则</span>
-        </div>
         <div class="contents flex col fl-align">
-            <div class="floor-one-bk"></div>
-            <div class="rules-content flex col">
+            <img src="http://img.fqapps.com/b20ea55b591e33be751da41ddd444b50" alt="">
+            <div class="rules-content b-ff flex col">
                 <span class="title fz-14">说明</span>
                 <div class="list-conetnt flex col">
                     <div class="list-item flex">
                         <span class="serial-one fz-13 c-ff">1</span>
                         <p class="infos fz-12 c-66">
-                            每邀请1个新用户注册APP并成为有效合伙人，邀请人
-                            和被邀请人均可获得1张夺宝券
+                            活动规则：活动期间，用户可使用夺宝券参与0元夺宝，通过计算中奖码得出中奖夺宝者。
                         </p>
                     </div>
                     <div class="list-item flex">
                         <span class="serial-one fz-13 c-ff">2</span>
-                        <p class="infos fz-12 c-66">
-                            每张夺宝券不限夺宝活动，但限制1张夺宝券只限参与
-                            1次夺宝，不得重复使用
-                        </p>
-                    </div>
-                    <div class="list-item flex">
-                        <span class="serial-one fz-13 c-ff">3</span>
-                        <p class="infos fz-12 c-66">
-                            多张夺宝券可参与多个商品夺宝也可参与某一个商品的
-                            多次夺宝
-                        </p>
-                    </div>
-                    <div class="list-item flex">
-                        <span class="serial-one fz-13 c-ff">3</span>
-                        <p class="infos fz-12 c-66">
-                            夺宝码即用于参与夺宝的一个8位数号码 ，按报名人数
-                            依次发放
-                        </p>
-                    </div>
-                    <div class="list-item flex">
-                        <span class="serial-one fz-13 c-ff">3</span>
-                        <p class="infos fz-12 c-66">
-                            中奖夺宝码将由福袋生活按规则计算出的一个号码，持
-                            有该号码的用户即可获得该宝贝
-                        </p>
+                        <div class="infos fz-12 c-66">
+                            <p>夺宝券</p>
+                            <p>1.每邀请一个新用户注册成功app，邀请人和被邀请人均可获得1张夺宝券</p>
+                            <p>2.每张夺宝券不限夺宝活动，但限制1张夺宝券只能参与1次夺宝，不得重复使用</p>
+                            <p>3.多张夺宝券可参与多个商品夺宝也可参与单一个商品的多次夺宝</p>
+                            <p>4.夺宝码即用于参与夺宝的一个8位数号码 ，按报名人数依次发放</p>
+                            <p>5.中奖夺宝码将由福袋生活按规则计算出的一个号码，持有该号码的用户即可获得该宝贝</p>
+                        </div>
                     </div>
                 </div>
                 <span class="title fz-14">中奖夺宝码</span>
@@ -134,36 +51,76 @@
                     <div class="list-item flex">
                         <span class="serial-two fz-13 c-ff">1</span>
                         <p class="infos fz-12 c-66">
-                            抽奖采用每次的随机数据，每期活动结束日当天晚上22：
-                            00左右公布
+                            抽奖采用每日的随机数据，每期活动结束日当天晚上22：00左右公布
                         </p>
                     </div>
                     <div class="list-item flex">
                         <span class="serial-two fz-13 c-ff">2</span>
                         <div class="infos fz-12 c-66">
-                            <p>活动结束后，中奖码按当天体彩列5开奖号码+开奖当日
-                                日期/本活动实际报名人数=商取余数+1得到</p>
-                            <p>A：体彩列5开奖号码+开奖当日日期，如</p>
-                            <p>37838+20190611=20228449</p>
-                            <p> B：本活动实际报名人数，如4587人</p>
-                            <p>幸运码：A/B=商取余数+1，如</p>
-                            <p>20228449/4587=4409余4366+1=4367</p>
+                            <p>活动结束后，中奖码按A/B的余数，余数+1为中奖码</p>
+                            <p>A：A为活动结束后最新一期体彩排列5开奖号码+开奖当天日期（例如：89986+20181123）</p>
+                            <p>B：对应夺宝商品的所需夺宝人数</p>
+                            <p>中奖夺宝码：A/B的余数+1，如20228449/4587=4409余4366+1=4367</p>
                         </div>
                     </div>
+                    <div class="list-item flex">
+                        <span class="serial-two fz-13 c-ff">3</span>
+                        <p class="infos fz-12 c-66">
+                            注：如遇体彩中心通讯故障，无法获取上述期数的体彩开奖结果，将会延长开奖时间，直到获取开奖结果。
+                        </p>
+                    </div>
                 </div>
-                <span class="title fz-14">开奖时间说明</span>
+                <span class="title fz-14">夺宝规则</span>
                 <div class="list-conetnt flex col">
                     <div class="list-item flex">
                         <span class="serial-three fz-13 c-ff">1</span>
                         <p class="infos fz-12 c-66">
-                            夺宝活动按活动结束当天一期的体彩排列5计算开奖
+                            每场夺宝活动都设置需满足所需的人次方可开奖
                         </p>
                     </div>
                     <div class="list-item flex">
                         <span class="serial-three fz-13 c-ff">2</span>
                         <p class="infos fz-12 c-66">
-                            若有设置人数条件的夺宝活动，报名人数在当天20：30
-                            前达到条件数量后，将在
+                            夺宝活动按活动结束当天一期的体彩排列5计算开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">3</span>
+                        <p class="infos fz-12 c-66">
+                            若该活动在当天20：30前满足人数，则在当天开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">4</span>
+                        <p class="infos fz-12 c-66">
+                            若该活动在当天20：30后满足人数，则在次日开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">5</span>
+                        <p class="infos fz-12 c-66">
+                            如发现参与者在参与过程中存在利用漏洞、恶意攻击或欺诈行为，福袋生活将取消该帐号的本次夺宝资格。
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">6</span>
+                        <p class="infos fz-12 c-66">
+                            如遇不可抗力、平台系统发生故障、遭受第三方攻击或其他无法控制    的情形 ，福袋生活平台有权取消该次夺宝活动。
+                        </p>
+                    </div>
+                </div>
+                <span class="title fz-14">关于中奖</span>
+                <div class="list-conetnt flex col">
+                    <div class="list-item flex">
+                        <span class="serial-four fz-13 c-ff">1</span>
+                        <p class="infos fz-12 c-66">
+                            夺宝成功后，福袋生活平台将会在7个工作日内核实发货，具体信息可在【我的夺宝】查看。
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-four fz-13 c-ff">2</span>
+                        <p class="infos fz-12 c-66">
+                            如快递无法配送至获奖者提供的送货地址，将默认配送到距离最近的送货地，由获奖者本人自提。
                         </p>
                     </div>
                 </div>
@@ -171,5 +128,4 @@
         </div>
     </div>
 </body>
-
 </html>

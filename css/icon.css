@@ -1,74 +1,67 @@
+/* 首页 */
 .coupons-icon {
-    background: url(../icon/c-icon.png) no-repeat center/0.5rem;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(http://img.fqapps.com/07da6f3efc4e96600099d9a9f10d2753) no-repeat;
+    background-size: cover;
 }
 
 .mine-icon {
-    background: url(../icon/mine-icon.png) no-repeat center/0.5rem;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(http://img.fqapps.com/851f4d7c08eca417b65d9335696b5ac0) no-repeat;
+    background-size: cover;
 }
 
 .address-icon {
-    background: url(../icon/address-icon.png) no-repeat center/0.5rem;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(http://img.fqapps.com/67ff68b966a312144246dc7a4b3871d1) no-repeat;
+    background-size: cover;
 }
 
-.r-icon {
-    background: url(../icon/r-icon.png) no-repeat center/0.5rem;
+.rules-icon {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(http://img.fqapps.com/9f97d9a72033dba97bd3ec834e4229dc) no-repeat;
+    background-size: cover;
 }
 
 .record-icon {
-    background: url(../icon/record-icon.png) no-repeat center/0.5rem;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(http://img.fqapps.com/67e8ab79ff22bbc05cc789f3c7591948) no-repeat;
+    background-size: cover;
 }
 
-.s-icon {
-    background: url(../icon/s-icon.png) no-repeat center/0.5rem;
+.share-icon {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(http://img.fqapps.com/223ee9553e2c2b6e55acdeb092e9bd03) no-repeat;
+    background-size: cover;
 }
 
-.chose {
-    background: url(../image/c-bk.png) no-repeat center/1.06rem;
-}
 
-
-.back {
-    width: 0.2rem;
-    height: 0.2rem;
-    background: url(../icon/back.png) no-repeat center/0.2rem;
-    margin-left: 0.1rem;
-    margin-right: 1.24rem;
-}
-
-.getBtn {
-    width: 2.52rem;
-    height: 0.75rem;
-    background: url(../image/quan-btn.png) no-repeat center/2.52rem;
-    margin-top: 0.98rem;
-}
-
-.close {
-    width: 0.36rem;
-    height: 0.36rem;
-    background: url(../icon/close.png) no-repeat center/0.36rem;
-    margin-top: 0.2rem;
-}
-
-.coupons-box {
-    width: 3.25rem;
-    height: 3.72rem;
-    background: url(../image/quan-bk.png) no-repeat center/3.25rem;
-    margin-top: 1.5rem;
+.floor-one {
+    width: 100%;
+    height: 3.53rem;
+    background: url(http://img.fqapps.com/17fca7c5dd1a5263ea6dfdea68ef4bf2) no-repeat;
     position: relative;
-}
-
-.coupon {
-    width: 2rem;
-    height: 0.99rem;
-    background: url(../image/quan.png) no-repeat center/2rem;
-    margin-top: 0.95rem;
+    background-size: cover;
 }
 
 .t-icon {
     display: block;
     width: 0.16rem;
     height: 0.1rem;
-    background: url(../icon/t-icon.png) no-repeat center/0.16rem;
+    background: url(http://img.fqapps.com/e0afd515140c7c7bd5d851746e084f7a) no-repeat;
+    background-size: cover;
     margin-left: 0.08rem;
     margin-right: 0.08rem;
 }
@@ -76,61 +69,162 @@
 .sign-line {
     width: 3.51rem;
     height: 0.47rem;
-    background: url(../image/line-bk.png) no-repeat center/3.51rem;
+    background: url(http://img.fqapps.com/5818b45bfcaa8b5a8a9ddb5d9eb664da) no-repeat;
+    background-size: cover;
     position: absolute;
     bottom: 0.15rem;
 }
 
-.floor-one {
-    width: 100%;
-    height: 3.53rem;
-    background: url(../image/h-bk.png) no-repeat center/100%;
+.chose {
+    background: url(http://img.fqapps.com/491ffbb39038b001b74e9422aae9bb41) no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/* 夺宝券 */
+.coupons-box {
+    width: 3.25rem;
+    height: 3.72rem;
+    background: url(http://img.fqapps.com/2b9a0247af685b1ab10a5780a7cd7ea7) no-repeat;
+    background-size: cover;
+    margin-top: 1rem;
     position: relative;
 }
 
-.add {
-    width: 0.2rem;
-    height: 0.2rem;
-    background: url(../icon/add.png) no-repeat center/0.2rem;
-    margin-right: 0.2rem;
+.coupon {
+    width: 2rem;
+    height: 0.99rem;
+    background: url(http://img.fqapps.com/4301b33ea5f01043bbcbdc6aef5b16e5) no-repeat;
+    background-size: cover;
+    margin-top: 0.95rem;
 }
+
+.getBtn {
+    width: 2.52rem;
+    height: 0.75rem;
+    background: url(http://img.fqapps.com/93138a9b64d233523cf39b05f3111cd2) no-repeat;
+    background-size: cover;
+    margin-top: 0.98rem;
+}
+
+
+.close {
+    width: 0.36rem;
+    height: 0.36rem;
+    background: url(http://img.fqapps.com/60b5d0116e55fca1701ddd69d050be97) no-repeat;
+    background-size: cover;
+}
+
+.share-img {
+    width: 3rem;
+    height: 4rem;
+    background: url(http://img.fqapps.com/7b0a766b6c763d573ae3c75e45d76e56) no-repeat;
+    background-size: cover;
+    margin-top: 0.2rem; 
+}
+
+.btn {
+    width: 2.75rem;
+    height: 0.75rem;
+    background: url(http://img.fqapps.com/a305e8ad9ebdb253b7ffdef9aa31aec3) no-repeat center;
+    background-size: cover;
+}
+
+/* 我的夺宝 */
 
 .choose {
     width: 0.43rem;
     height: 0.43rem;
-    background: url(../icon/choose.png) no-repeat center/0.43rem;
+    background: url(http://img.fqapps.com/b056c77a864ebdb074804e9d6a9ce788) no-repeat;
     position: absolute;
     top: 0rem;
     right: 0rem;
+    background-size: 100%;
 }
 
 .ed-icon {
     display: block;
     width: 0.2rem;
     height: 0.2rem;
-    background: url(../icon/edtor.png) no-repeat center/0.2rem;
+    background: url(http://img.fqapps.com/9ef3f54ca07a0aaff89a15366340bb36) no-repeat;
     margin-right: 0.09rem;
+    background-size: cover;
 }
 
 .add-bk {
     display: block;
     width: 0.95rem;
     height: 0.95rem;
-    background: url(../icon/emp.png) no-repeat center/0.95rem;
+    background: url(http://img.fqapps.com/cd7565866df878bf6d2c663c203e0534) no-repeat;
     margin-bottom: 0.11rem;
-}
-
-.del{
-    display: block;
-    width: 0.2rem;
-    height: 0.2rem;
-    background: url(../icon/del.png) no-repeat center/0.2rem;
+    background-size: cover;
 }
 
 .gos {
     display: block;
     width: 0.2rem;
     height: 0.2rem;
-    background: url(../icon/go.png) no-repeat center/0.2rem;
+    background: url(http://img.fqapps.com/80a573ff3602ef30baabce65f1e0f66a) no-repeat;
     margin-right: 0.08rem;
+    background-size: cover;
+}
+
+.p-num {
+    display: block;
+    width: 0.2rem;
+    height: 0.2rem;
+    background: url(http://img.fqapps.com/fe84f6eaa6bb9c6f8b735c69ed9eb56d) no-repeat;
+    margin-left: 0.17rem;
+    margin-right: 0.08rem;
+    background-size: cover;
+}
+
+
+.coupons {
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url(http://img.fqapps.com/d48e30c97b60dd7d41425f8d56700137) no-repeat;
+    background-size: cover;
+    margin-left: 0.15rem;
+    margin-right: 0.05rem;
+}
+
+.empt {
+    display: block;
+    width: 3.03rem;
+    height: 0.68rem;
+    background: url(http://img.fqapps.com/7cd71c693ba9cc238f20956952d9a780) no-repeat;
+    background-size: cover;
+    margin-top: 1.83rem;
+}
+
+
+.add-address {
+    width: 0.22rem;
+    height: 0.22rem;
+    background: url(http://img.fqapps.com/ac878e490672745b2a6b1973e604c597) no-repeat;
+    background-size: cover;
+    margin-left: 1.17rem;
+    margin-right: 0.05rem;
+}
+
+.winning {
+    width: 0.56rem;
+    height: 0.54rem;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background: url(http://img.fqapps.com/63130e2bc7c363c42e3604325f612a28) no-repeat center;
+    background-size: cover;
+}
+
+.lost {
+    width: 0.56rem;
+    height: 0.54rem;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    background: url(http://img.fqapps.com/7e88fe7de6f2e96829ee0e9f72e0da5c) no-repeat center;
+    background-size: cover;
 }

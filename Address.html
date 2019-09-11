@@ -5,159 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>收获地址</title>
-    <script src="js/flexible.min.js"></script>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/icon.css">
+    <title>收货地址</title>
+    <script src="/Public/app_treasure/js/flexible.min.js"></script>
+    <script src="/Public/app_treasure/js/jquery-3.0.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="/Public/app_treasure/css/common.css?t=2019090902">
+    <link rel="stylesheet" href="/Public/app_treasure/css/icon.css">
     <style>
-        .contents {
-            width: 100%;
-            height: 100%;
-            background: #F3F4F6;
-            overflow: auto;
-        }
-
-        .empt {
-            margin-top: 1.89rem;
-        }
-
-        .address-list {
-            width: 100%;
-            height: auto;
-            margin-top: 0.1rem;
-        }
-
-        .list-item {
-            width: 3.50rem;
-            background: rgba(255, 255, 255, 1);
-            border-radius: 0.05rem;
-            margin-bottom: 0.2rem;
-            position: relative;
-        }
-
-        .line-one {
-            border-bottom: 0.01rem solid #E9EAEC;
-            padding-top: 0.17rem;
-            padding-bottom: 0.14rem;
-        }
-
-        .line-one>p {
-            margin-left: 0.12rem;
-        }
-
-        .line-one>p:first-child>span:first-child {
-            margin-right: 0.3rem;
-        }
-
-        .line-one>p:last-child {
-            width: 3.11rem;
-            margin-top: 0.13rem;
-        }
-
-        .line-two {
-            margin-left: 0.12rem;
-            margin-right: 0.13rem;
-            padding-top: 0.13rem;
-            padding-bottom: 0.12rem;
-        }
+        body,html,.contents {background: #F3F4F6;}
+        .empts {margin-top: 1.89rem;}
+        .add-line {width: 3.51rem;padding: 0.12rem 0;border-radius: 0.05rem;margin-bottom: 1rem;}
+        .nextBtn {width: 3.51rem;height: 0.44rem;border-radius: 0.44rem;text-align: center;line-height: 0.44rem;background: #FE2D64;position: fixed;bottom: 0.08rem;}
+        .address-list {width: 100%;margin-top: 0.1rem;}
+        .list-item {width: 3.50rem;border-radius: 0.05rem;margin-bottom: 0.2rem;position: relative;}
+        .line-one {border-bottom: 0.01rem solid #E9EAEC;padding-top: 0.17rem;padding-bottom: 0.14rem;}
+        .line-one>p {margin-left: 0.12rem;}
+        .username {margin-right: 0.3rem;}
+        .line-one>p:last-child {width: 3.11rem;margin-top: 0.13rem;}
+        .line-two {margin: 0.13rem 0.13rem 0 0.12rem;padding-bottom: 0.12rem;justify-content: flex-end;}
+        .edtor {margin-left: 2.18rem;}
     </style>
 </head>
 
 <body>
     <div id="app">
-        <div class="TopBar">
-            <i class="back"></i>
-            <span class="fz-18 hide">添加地址</span>
-            <span class="fz-18">选择地址</span>
-            <i class="add"></i>
-        </div>
         <div class="contents flex col fl-align">
-            <!-- 空 -->
-            <div class="empt flex col fl-align hide">
+            <div class="empts flex col fl-align" @click='add_address' v-if="list.length==0">
                 <i class="add-bk"></i>
                 <span class="fz-18 c-99">添加收货地址</span>
             </div>
             <div class="address-list flex col fl-align">
-                <div class="list-item">
-                    <i class="choose"></i>
+                <div class="list-item b-ff" v-for="(item,index) in list" @click="choseAddress(index,item.is_harvest)"
+                    :data-stat="item.is_harvest">
+                    <i class="choose" v-if="item.is_harvest==1||indexs==index"></i>
                     <div class="line-one">
                         <p class="fz-15 c-33">
-                            <span>康小二</span>
-                            <span>15984112214</span>
+                            <span class="username">{{item.name}}</span>
+                            <span>{{item.phone}}</span>
                         </p>
-                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
+                        <p class="fz-13 c-99 clamp1">{{item.address}}</p>
                     </div>
-                    <div class="line-two flex fl-align fl-jsb">
-                        <span class="c-2F fz-13">默认地址</span>
-                        <div class="edtor flex fl-align">
-                            <i class="ed-icon"></i>
-                            <span class="fz-13 c-66">编辑</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <i class="choose"></i>
-                    <div class="line-one">
-                        <p class="fz-15 c-33">
-                            <span>康小二</span>
-                            <span>15984112214</span>
-                        </p>
-                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
-                    </div>
-                    <div class="line-two flex fl-align fl-jsb">
-                        <span class="c-2F fz-13">默认地址</span>
-                        <div class="edtor flex fl-align">
-                            <i class="ed-icon"></i>
-                            <span class="fz-13 c-66">编辑</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <i class="choose"></i>
-                    <div class="line-one">
-                        <p class="fz-15 c-33">
-                            <span>康小二</span>
-                            <span>15984112214</span>
-                        </p>
-                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
-                    </div>
-                    <div class="line-two flex fl-align fl-jsb">
-                        <span class="c-2F fz-13">默认地址</span>
-                        <div class="edtor flex fl-align">
-                            <i class="ed-icon"></i>
-                            <span class="fz-13 c-66">编辑</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <i class="choose"></i>
-                    <div class="line-one">
-                        <p class="fz-15 c-33">
-                            <span>康小二</span>
-                            <span>15984112214</span>
-                        </p>
-                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
-                    </div>
-                    <div class="line-two flex fl-align fl-jsb">
-                        <span class="c-2F fz-13">默认地址</span>
-                        <div class="edtor flex fl-align">
-                            <i class="ed-icon"></i>
-                            <span class="fz-13 c-66">编辑</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <i class="choose"></i>
-                    <div class="line-one">
-                        <p class="fz-15 c-33">
-                            <span>康小二</span>
-                            <span>15984112214</span>
-                        </p>
-                        <p class="fz-13 c-99 clamp1">广东省广州市天河区天河客运站不知楼12号起风中心...</p>
-                    </div>
-                    <div class="line-two flex fl-align fl-jsb">
-                        <span class="c-2F fz-13">默认地址</span>
-                        <div class="edtor flex fl-align">
+                    <div class="line-two flex fl-align">
+                        <span class="c-d64 fz-13" v-if="item.is_default==1">默认地址</span>
+                        <div class="edtor flex fl-align" @click="toEd(item.id)">
                             <i class="ed-icon"></i>
                             <span class="fz-13 c-66">编辑</span>
                         </div>
@@ -165,9 +55,147 @@
                 </div>
 
             </div>
+            <div class="add-line flex fl-align b-ff" @click="add_address" v-if="list.length!=0">
+                <i class="add-address"></i>
+                <span class="fz-13 c-33">新增收货人信息</span>
+            </div>
+            <div class="nextBtn c-ff fz-17" @click="next">确认</div>
         </div>
 
     </div>
 </body>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            page: 1,
+            list: [],
+            indexs: null,
+            chosedata: ''
+        },
+        created: function () {
+            this.addreslist()
+        },
+        methods: {
+            addreslist: function () {
+                var that = this
+                var param = {
+                    min_id: that.page
+                }
+                $.ajax({
+                    url: '/Address/myAddressList',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        that.list = res.data
+                        that.page = res.min_id
+                        that.scroll()
+                    }
+                })
+            },
+            scroll: function () {
+                var that = this
+                $(window).scroll(function () {
+                    var aa = $(window).scrollTop();
+                    var bb = $(window).height();
+                    var cc = $(document).height();
+                    if (cc <= aa + bb) {
+                        that.addlist()
+                    }
+                })
+            },
+            addlist: function () {
+                var that = this
+                var param = {
+                    min_id: that.page
+                }
+                $.ajax({
+                    url: '/Address/myAddressList',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        var now = that.list
+                        var newlist = now.concat(res.data)
+                        that.list = newlist
+                        that.page = res.min_id
+                    }
+                })
+            },
+            // 选则的切换
+            choseAddress: function (e, id) {
+                var that = this
+                that.indexs = e;
+                $('.list-item').each(function () {
+                    $(this).find('.choose').hide()
+                })
+                if (id == 1) {
+                    $('.address-list').children().eq(e).find('.choose').show()
+                }
+            },
+            next: function () {
+                let that = this
+                let ind = that.indexs
+                if (ind == null) { //默认项 
+                    $('.list-item').each(function () {
+                        if ($(this).attr('data-stat') == 1) {
+                            let ind = $(this).index()
+                            let item = that.list[ind]
+                            that.sure(item.id)
+                        }
+                    })
+                } else {
+                    let item = that.list[ind]
+                    that.sure(item.id)
+                }
+            },
+            // 提交
+            sure: function (e) {
+                console.log(e)
+                let that = this
+                var param = {
+                    id: e
+                }
+                $.ajax({
+                    url: '/Address/handelHarvest',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if(res.code==200){
+                        that.msgT(res.msg,0)
+                    }else{
+                        that.msgT(res.msg)
+                    }
+                })
+
+            },
+            msgT: function (text, id) {
+                var msgHtml = '<div class="alerts flex col fl-align">' +
+                    '<div class="alert-box flex col fl-align">' +
+                    '<p class="alert-info">' + text + '</p>' +
+                    '</div>' +
+                    '</div>';
+                $('#app').append(msgHtml);
+                setTimeout(function () {
+                    $('.alerts').remove();
+                    if(id==0){
+                        window.location.reload()
+                    }
+                }, 2000);
+            },
+            add_address: function () {
+                window.location.href = 'add_address.html'
+            },
+            toEd: function (e) {
+                event.stopPropagation();
+                window.location.href = "add_address.html?id=" + e;
+            }
+        }
+    })
+</script>
 
 </html>

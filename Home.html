@@ -6,684 +6,370 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>0元夺宝-首页</title>
-    <script src="js/flexible.min.js"></script>
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/icon.css">
-    <link rel="stylesheet" href="css/schedule.css">
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="/Public/app_treasure/js/flexible.min.js"></script>
+    <script src="/Public/app_treasure/js/jquery-3.0.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="/Public/app_treasure/js/swiper.min.js"></script>
+    <script src="/Public/app_treasure/js/index.js"></script>
+    <script type="text/javascript" src="/Public/assets/mobile/js/fdapp/functionclick.js?t=2"></script>
+    <script type="text/javascript" src="/Public/assets/mobile/js/fdapp/marquee.min.js"></script>
+    <link rel="stylesheet" href="/Public/app_treasure/css/common.css">
+    <link rel="stylesheet" href="/Public/app_treasure/css/icon.css">
+    <link rel="stylesheet" href="/Public/app_treasure/css/swiper.min.css">
+    <link rel="stylesheet" href="/Public/app_treasure/css/index.css">
     <style>
-        .contents {
-            width: 100%;
-            height: 100%;
-            background: #F8275B;
-            overflow: auto;
-        }
-
-        .boxs {
-            width: 0.62rem;
-            height: 2.46rem;
-            background: rgba(208, 11, 43, 0.8);
-            position: absolute;
-            top: 0.1rem;
-        }
-
-        .floor-one .left {
-            border-radius: 0 0.1rem 0.1rem 0;
-            left: 0rem;
-        }
-
-        .floor-one .right {
-            border-radius: 0.1rem 0rem 0rem 0.1rem;
-            right: 0rem;
-        }
-
-        .floor-one .left>div>span:last-child,
-        .floor-one .right>div>span:last-child {
-            width: 100%;
-            text-align: center;
-        }
-
-        .icons {
-            display: block;
-            width: 0.5rem;
-            height: 0.5rem;
-        }
-
-        .c-number {
-            font-weight: bold;
-            margin-top: -0.22rem;
-            margin-bottom: 0.1rem;
-        }
-
-
-        .sign-line>span {
-            width: 1.7rem;
-            margin-left: 1.36rem;
-        }
-
-        /* 轮播 */
-        .mid {
-            width: 2.35rem;
-            height: 0.81rem;
-            position: absolute;
-            bottom: 0.75rem;
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-container .swiper-slide {
-            width: 100%;
-            height: 0.22rem !important;
-            background: #AC0019;
-            border-radius: 0.11rem;
-        }
-
-        .swiper-slide>span {
-            width: 1.96rem;
-        }
-
-        /* 切换 */
-        .floor-two {
-            width: 100%;
-            height: 0.53rem;
-            background: linear-gradient(0deg, rgba(254, 52, 76, 1) 0%, rgba(255, 68, 165, 1) 100%);
-            position: relative;
-        }
-
-        .floor-two>div {
-            width: 1.06rem;
-            height: 0.75rem;
-            position: absolute;
-            top: -0.11rem;
-        }
-
-        .floor-two>div:first-child {
-            left: 0.57rem;
-        }
-
-        .floor-two>div:last-child {
-            right: 0.57rem;
-        }
-
-        .floor-two>div>span {
-            margin-top: 0.24rem;
-        }
-
-        .floor-three {
-            width: 100%;
-            height: auto;
-            padding-top: 0.15rem;
-            padding-bottom: 0.16rem;
-        }
-
-        /* 正在进行 */
-        .floor-three>div {
-            width: 100%;
-            height: auto;
-        }
-
-        .list-item-one {
-            width: 3.51rem;
-            height: 1.62rem;
-            background: rgba(255, 255, 255, 1);
-            border-radius: 0.1rem;
-            margin-bottom: 0.1rem;
-        }
-
-        .list-item-one .left {
-            margin-top: 0.07rem;
-            margin-left: 0.07rem;
-            margin-right: 0.11rem;
-        }
-
-        .list-item-one .left .goods-img {
-            width: 1.2rem;
-            height: 1.2rem;
-            border-radius: 0.05rem;
-            background: rebeccapurple;
-            margin-bottom: 0.07rem;
-        }
-
-        .list-item-one .left .join-header {
-            width: 1.2rem;
-            height: 1.2rem;
-        }
-
-        .list-item-one .left .join-header>img {
-            width: 0.2rem;
-            height: 0.2rem;
-            border-radius: 50%;
-            background: green;
-            margin-right: 0.01rem;
-        }
-
-        .list-item-one .right .good-name {
-            width: 2rem;
-            font-weight: bold;
-            line-height: 0.18rem;
-            margin: 0.09rem 0;
-        }
-
-        .joinBtn {
-            width: 0.82rem;
-            height: 0.27rem;
-            text-align: center;
-            line-height: 0.27rem;
-            background: linear-gradient(to right, #fe2d64, #ff742f);
-            box-shadow: 0 0 0.11rem 0rem rgba(232, 35, 76, 0.16);
-            border-radius: 0.13rem;
-            margin-top: 0.04rem;
-        }
-
-        .oprice-more {
-            margin: 0.05rem 0;
-        }
-
-        .oprice-more>span:first-child {
-            text-decoration: line-through;
-        }
-
-        .joinnum {
-            margin-bottom: 0.08rem;
-        }
-
-        /* 进度条 */
-        .press {
-            width: 2rem;
-            height: 0.15rem;
-        }
-
-        #scheduleX {
-            width: 100% !important;
-            height: 100% !important;
-            border-radius: 0.08rem !important;
-        }
-
-        #scheduleX .xList {
-            background: linear-gradient(to right, #FF742F, #FE2D64)
-        }
-
-        /* 过往活动 */
-        .list-item-two {
-            width: 3.61rem;
-            height: 1.82rem;
-            background: rgba(162, 2, 13, 1);
-            border-radius: 0.1rem;
-            border-radius: 0.1rem;
-            margin-bottom: 0.1rem;
-        }
-
-        .list-item-two .good {
-            width: 3.51rem;
-            height: 1.36rem;
-            background: rgba(255, 255, 255, 1);
-            border-radius: 0.1rem;
-            margin-top: 0.06rem;
-        }
-
-        .list-item-two .good .good-img {
-            width: 1.2rem;
-            height: 1.2rem;
-            border-radius: 0.05rem;
-            background: rebeccapurple;
-            margin-top: 0.07rem;
-            margin-left: 0.07rem;
-            margin-right: 0.11rem;
-        }
-
-        .list-item-two .good .info .good-name {
-            width: 2rem;
-            font-weight: bold;
-            margin: 0.09rem 0;
-        }
-
-        .finshed {
-            display: block;
-            width: 0.82rem;
-            height: 0.27rem;
-            text-align: center;
-            line-height: 0.27rem;
-            background: #999999;
-            border-radius: 0.13rem;
-            margin-left: 1.18rem;
-        }
-
-        .list-item-two .good .info .price {
-            margin-top: -0.08rem;
-        }
-
-        .last-line .price {
-            text-decoration: line-through;
-        }
-
-        .win {
-            width: 3.51rem;
-            margin-top: 0.09rem;
-        }
-
-        .w-phone {
-            height: 0.23rem;
-            line-height: 0.23rem;
-            text-align: center;
-            padding: 0 0.11rem;
-            background: rgba(101, 0, 7, 1);
-            border: 0.01rem solid rgba(255, 236, 24, 0.5);
-            margin-left: 0.09rem;
-            border-radius: 0.11rem;
-        }
-
-        .w-code {
-            height: 0.23rem;
-            line-height: 0.23rem;
-            text-align: center;
-            padding: 0 0.11rem;
-            background: rgba(101, 0, 7, 1);
-            border: 0.01rem solid rgba(255, 236, 24, 0.5);
-            border-radius: 0.11rem;
-            margin-left: 0.09rem;
-        }
-
-        /* 遮罩 */
-        .cover {
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            position: fixed;
-            top: 0rem;
-            z-index: 200;
-        }
-
-        .coupon>span {
-            margin-left: 0.38rem;
-        }
+        body,html,.contents {background: linear-gradient(#F21F51, #FF3267);}
+        .boxs {width: 0.62rem;height: 2.46rem;background: #D00B2B;position: absolute;top: 0.1rem;}
+        .floor-one .left {border-radius: 0 0.1rem 0.1rem 0;left: 0rem;}
+        .floor-one .right {border-radius: 0.1rem 0rem 0rem 0.1rem;right: 0rem;}
+        .c-number {font-weight: bold;margin-top: -0.22rem;margin-bottom: 0.1rem;}
+        .icon-name {width: 100%;text-align: center;}
+        .sign-line-info {width: 1.7rem;margin-left: 1.36rem;}
+        .mid {width: 2.35rem;height: 0.81rem;position: absolute;bottom: 0.75rem;}
+        .swiper-container {width: 100%;height: 100%;}
+        .swiper-container .swiper-slide {width: 100%;border-radius: 0.11rem;}
+        .slide-info {width: 99%;height: 88%;background: #AC0019;border-radius: 0.11rem;margin-left: 0.01rem;}
+        .slide-info .info{width: 1.96rem;}
+        .floor-two {width: 100%;height: 0.54rem;background: linear-gradient(#FE344C, #FF44A5);position: relative;}
+        .floor-two>div {width: 50%;height: 0.69rem;position: absolute;top: -0.05rem;}
+        .switch-one {right: 50%;}
+        .switch-two {left: 50%;}
+        .switch-info {margin-top: 0.2rem;}
+        .floor-three {width: 100%;}
+        .floor-three>div {width: 100%;margin-top: 0.15rem;}
+        .list-item-one {width: 3.51rem;height: 1.62rem;;border-radius: 0.1rem;margin-bottom: 0.1rem;}
+        .join-header {width: 1.2rem;}
+        .join-header .join-header-img {width: 0.22rem;height: 0.22rem;border-radius: 50%;;margin-right: 0.04rem;}
+        .join-header .join-header-img img {width: 0.2rem;height: 0.2rem;border-radius: 50%;margin-left: 0.01rem;}
+        .right .good-name {width: 2rem;line-height: 0.18rem;margin: 0.09rem 0;}
+        .price-line {width: 2rem;margin-bottom: 0.14rem;}
+        .joinBtn {width: 0.82rem;height: 0.27rem;text-align: center;line-height: 0.27rem;background: linear-gradient(to right, #fe2d64, #ff742f);box-shadow: 0 0 0.11rem 0rem rgba(232,35,76,0.16);border-radius: 0.13rem;margin-top: 0.04rem;}
+        .waiting{background:linear-gradient(to right,#3087EA,#6775E8);}
+        .joinnum {margin-bottom: 0.15rem;}
+        .list-item-two {width: 3.61rem;height: 1.82rem;background: #a2020d;margin-bottom: 0.1rem;border-radius: 0.1rem;}
+        .good {width: 3.51rem;height: 1.36rem;;border-radius: 0.1rem;margin-top: 0.06rem;}
+        .good .info {width: 2rem;height: 100%;}
+        .good .info .good-name {width: 2rem;margin: 0.09rem 0;}
+        .last-line {width: 2rem;margin-top: 0.32rem;}
+        .finshed {width: 0.82rem;height: 0.27rem;text-align: center;line-height: 0.27rem;background: #999999;border-radius: 0.13rem;}
+        .win {width: 3.51rem;margin-top: 0.09rem;}
+        .w-phone,.w-code {height: 0.23rem;line-height: 0.23rem;text-align: center;padding: 0 0.11rem;background: #650007;border: 0.01rem solid rgba(255,236,24,0.5);margin-left: 0.09rem;border-radius: 0.11rem;}
+        .coupon>span {display: block;width: 100%;text-align: center;}
+        .good-img,
+        .goods-img {width: 1.2rem;height: 1.2rem;margin: 0.07rem 0.16rem 0.07rem 0.07rem;}
+        .good-img img,
+        .goods-img img  {width: 100%;height: 100%;border-radius: 0.05rem;}
+        .note{text-align: center;margin-top: 0.84rem;}
+        [v-cloak]{display: none;}
+        .el-progress-bar__outer {background: #ffd5b6 !important;}
     </style>
-
 </head>
-
 <body>
     <div id="app">
-        <div class="TopBar">
-            <i class="back"></i>
-            <span class="fz-18">0元夺宝</span>
-        </div>
         <div class="contents">
-
             <div class="floor-one flex col fl-align">
                 <div class="left boxs flex col fl-jse">
                     <div class="flex col fl-align" @click="toCoupons">
-                        <i class="icons coupons-icon"></i>
-                        <span class="c-number fz-12 c-64">112</span>
-                        <span class="fz-13 c-ff">夺宝券(张)</span>
+                        <i class="coupons-icon"></i>
+                        <span class="c-number fz-12 c-64">{{ticket}}</span>
+                        <span class="icon-name fz-13 c-ff">夺宝券(张)</span>
                     </div>
                     <div class="flex col fl-align" @click="toMine">
-                        <i class="icons mine-icon"></i>
-                        <span class="fz-13 c-ff">我的夺宝</span>
+                        <i class="mine-icon"></i>
+                        <span class="icon-name fz-13 c-ff">我的夺宝</span>
                     </div>
                     <div class="flex col fl-align" @click="toAddress">
-                        <i class="icons address-icon"></i>
-                        <span class="fz-13 c-ff">收货地址</span>
+                        <i class="address-icon"></i>
+                        <span class="icon-name fz-13 c-ff">收货地址</span>
                     </div>
                 </div>
                 <div class="right boxs flex col fl-jse">
                     <div class="flex col fl-align" @click="toRules">
-                        <i class="icons r-icon"></i>
-                        <span class="fz-13 c-ff">活动规则</span>
+                        <i class="rules-icon"></i>
+                        <span class="icon-name fz-13 c-ff">活动规则</span>
                     </div>
                     <div class="flex col fl-align" @click="toRecord">
-                        <i class="icons record-icon"></i>
-                        <span class="fz-13 c-ff">抽奖记录</span>
+                        <i class="record-icon"></i>
+                        <span class="icon-name fz-13 c-ff">抽奖记录</span>
                     </div>
                     <div class="flex col fl-align" @click="toShare">
-                        <i class="icons s-icon"></i>
-                        <span class="fz-13 c-ff">分享好友</span>
+                        <i class="share-icon"></i>
+                        <span class="icon-name fz-13 c-ff">分享好友</span>
                     </div>
                 </div>
-
-                <!-- 轮播 -->
                 <div class="mid">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide flex fl-align">
-                                <i class="t-icon"></i>
-                                <span class="fz-12 c-2d clamp1">kangkang刚刚参加了扫地机器人夺宝</span>
-                            </div>
-                            <div class="swiper-slide flex fl-align">
-                                <i class="t-icon"></i>
-                                <span class="fz-12 c-2d clamp1">kangkang刚刚参加了扫地机器人夺宝</span>
-                            </div>
-                            <div class="swiper-slide flex fl-align">
-                                <i class="t-icon"></i>
-                                <span class="fz-12 c-2d clamp1">kangkang刚刚参加了扫地机器人夺宝</span>
-                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- 公告 -->
                 <div class="sign-line flex fl-align">
-                    <span class="fz-14 c-ff clamp1">邀请好友成功可获得夺宝券11111111111111111111</span>
+                    <span class="sign-line-info fz-14 c-ff clamp1">邀请好友成功可获得夺宝券</span>
                 </div>
             </div>
-
             <div class="floor-two fz-18 c-ff flex fl-align">
-                <div class="chose flex col fl-align" @click="changes(1)">
-                    <span>正在进行</span>
+                <div :class="status==1?'chose':''" class="switch-one flex col fl-align" @click="changes(1)">
+                    <span class="switch-info">正在进行</span>
                 </div>
-                <div class="flex col fl-align" @click="changes(2)">
-                    <span>过往活动</span>
+                <div :class="status==2?'chose':''" class="switch-two flex col fl-align" @click="changes(2)">
+                    <span class="switch-info">往期活动</span>
                 </div>
             </div>
-
             <div class="floor-three">
-                <!-- 正在进行 -->
                 <div class="flex col fl-align" v-if="status==1">
-                    <div class="list-item-one flex" @click="toDetail">
+                    <div class="list-item-one b-ff flex" v-for='item in alist' @click="toDetail(item.activity_id)">
                         <div class="left flex col fl-align">
-                            <img src class="goods-img" />
+                            <div class="goods-img">
+                                <img :src="item.image" />
+                            </div>
                             <div class="join-header flex">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <span class="fz-13">...</span>
+                                <div class="join-header-img b-change flex fl-align" v-for="(value,index) in item.participant"
+                                    v-if="index<5" :key='index'>
+                                    <img :src="value" alt="">
+                                </div>
+                                <span class="fz-13"
+                                    v-if="item.participant!== undefined && item.participant.length >5">...</span>
                             </div>
                         </div>
-
                         <div class="right flex col">
-                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                            <div class="price_join flex fl-jsb">
-                                <span class="fz-18 c-34">
-                                    ￥
-                                    <span class="fz-24">0</span>
-                                </span>
-                                <div class="joinBtn c-ff fz-15">马上夺宝</div>
+                            <p class="good-name fz-15 c-00 clamp2 f-wb">{{item.name}}</p>
+                            <div class="price-line flex fl-jsb">
+                                <div class="price flex">
+                                    <span class="fz-18 c-34">￥<span class="fz-24"
+                                            style="margin-left: -0.03rem">0</span>&nbsp;</span>
+                                    <span class="c-99 fz-14" style="line-height: 0.38rem;text-decoration: line-through;">￥{{item.cost_money}}</span>
+                                </div>
+                                <div class="joinBtn c-ff fz-15" v-if="item.status==1">马上夺宝</div>
+                                <div class="joinBtn waiting c-ff fz-15" v-if="item.status==2">等待开奖</div>
                             </div>
-                            <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
-                                <span>￥2250.00</span>
-                                <span>查看详情</span>
-                            </p>
-                            <p class="joinnum flex fl-align fl-jsb fz-11">
-                                <span class="c-64">已有2600人参与</span>
-                                <span>5000</span>
-                            </p>
-                            <!-- 进度条 -->
-                            <div class="press">
-                                <div id="scheduleX"></div>
-                            </div>
+                            <p class="joinnum flex fl-align fl-jsb fz-12">
+                                <span class="c-64">已有{{item.now_number}}人参与</span>
+                                <span class="c-33">需
+                                    <span style="text-decoration:underline">{{item.final_number}}</span>
+                                    人</span>
+                            </p>            
+                            <el-progress :text-inside="true" :stroke-width="18" :percentage="item.rate"></el-progress>
                         </div>
                     </div>
-                    <div class="list-item-one flex" @click="toDetail">
-                        <div class="left flex col fl-align">
-                            <img src class="goods-img" />
-                            <div class="join-header flex">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <span class="fz-13">...</span>
-                            </div>
-                        </div>
-
-                        <div class="right flex col">
-                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                            <div class="price_join flex fl-jsb">
-                                <span class="fz-18 c-34">
-                                    ￥
-                                    <span class="fz-24">0</span>
-                                </span>
-                                <div class="joinBtn c-ff fz-15">马上夺宝</div>
-                            </div>
-                            <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
-                                <span>￥2250.00</span>
-                                <span>查看详情</span>
-                            </p>
-                            <p class="joinnum flex fl-align fl-jsb fz-11">
-                                <span class="c-64">已有2600人参与</span>
-                                <span>5000</span>
-                            </p>
-                            <!-- 进度条 -->
-                            <div class="press">
-                                <div id="scheduleX"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="list-item-one flex" @click="toDetail">
-                        <div class="left flex col fl-align">
-                            <img src class="goods-img" />
-                            <div class="join-header flex">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <img src="" alt="">
-                                <span class="fz-13">...</span>
-                            </div>
-                        </div>
-
-                        <div class="right flex col">
-                            <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                            <div class="price_join flex fl-jsb">
-                                <span class="fz-18 c-34">
-                                    ￥
-                                    <span class="fz-24">0</span>
-                                </span>
-                                <div class="joinBtn c-ff fz-15">马上夺宝</div>
-                            </div>
-                            <p class="oprice-more flex fl-alig fl-jsb c-99 fz-14">
-                                <span>￥2250.00</span>
-                                <span>查看详情</span>
-                            </p>
-                            <p class="joinnum flex fl-align fl-jsb fz-11">
-                                <span class="c-64">已有2600人参与</span>
-                                <span>5000</span>
-                            </p>
-                            <!-- 进度条 -->
-                            <div class="press">
-                                <div id="scheduleX"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-                <!-- 过往活动 -->
                 <div class="flex col fl-align" v-if="status==2">
-                    <div class="list-item-two flex col fl-align">
-
-                        <div class="good flex">
-                            <img src="" alt="" class="good-img">
-                            <div class="info flex col">
-                                <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                                <span class="finshed fz-15 c-ff">已结束</span>
-                                <span class="price c-34 fz-18">
-                                    ￥
-                                    <span class="fz-24">0</span>
-                                </span>
-                                <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
-                                    <span class="oprice">￥2250.00</span>
-                                    <span>查看详情</span>
-                                </p>
+                    <div class="list-item-two flex col fl-align" v-for='item in alist'
+                        @click='toDetail(item.activity_id)'>
+                        <div class="good b-ff flex">
+                            <div class="good-img">
+                                <img :src="item.image">
+                            </div>
+                            <div class="info flex col fl-align">
+                                <p class="good-name fz-15 c-00 clamp2 f-wb">{{item.name}}</p>
+                                <div class="last-line flex fl-jsb fl-align">
+                                    <div class="price flex ">
+                                        <span class="fz-18 c-34">￥
+                                            <span class="fz-24" style="margin-left: -0.06rem">0</span>&nbsp;
+                                        </span>
+                                        <span class="fz-14 c-99"
+                                            style="line-height: 0.35rem">￥{{item.cost_money}}</span>
+                                    </div>
+                                    <div class="finshed fz-15 c-ff">已结束</div>
+                                </div>
                             </div>
                         </div>
-
                         <div class="win flex fl-align fl-jsb">
                             <div class="winner fz-14">
                                 <span class="c-55">获奖者:</span>
-                                <span class="w-phone c-ff">158****123</span>
+                                <span class="w-phone c-ff">{{item.winning_phone}}</span>
                             </div>
                             <div class="code fz-14">
-                                <span class="c-55">中奖码：</span>
-                                <span class="w-code c-ff">123</span>
+                                <span class="c-55">中奖码:</span>
+                                <span class="w-code c-ff">{{item.winning_code}}</span>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="list-item-two flex col fl-align">
-
-                        <div class="good flex">
-                            <img src="" alt="" class="good-img">
-                            <div class="info flex col">
-                                <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                                <span class="finshed fz-15 c-ff">已结束</span>
-                                <span class="price c-34 fz-18">
-                                    ￥
-                                    <span class="fz-24">0</span>
-                                </span>
-                                <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
-                                    <span class="oprice">￥2250.00</span>
-                                    <span>查看详情</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="win flex fl-align fl-jsb">
-                            <div class="winner fz-14">
-                                <span class="c-55">获奖者:</span>
-                                <span class="w-phone c-ff">158****123</span>
-                            </div>
-                            <div class="code fz-14">
-                                <span class="c-55">中奖码：</span>
-                                <span class="w-code c-ff">123</span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="list-item-two flex col fl-align">
-
-                        <div class="good flex">
-                            <img src="" alt="" class="good-img">
-                            <div class="info flex col">
-                                <p class="good-name fz-15 c-00 clamp2">Midea/美的 KFR-35GW/WCBN8A3@ 大1.5匹变</p>
-                                <span class="finshed fz-15 c-ff">已结束</span>
-                                <span class="price c-34 fz-18">
-                                    ￥
-                                    <span class="fz-24">0</span>
-                                </span>
-                                <p class="last-line flex fl-alig fl-jsb fz-14 c-99">
-                                    <span class="oprice">￥2250.00</span>
-                                    <span>查看详情</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="win flex fl-align fl-jsb">
-                            <div class="winner fz-14">
-                                <span class="c-55">获奖者:</span>
-                                <span class="w-phone c-ff">158****123</span>
-                            </div>
-                            <div class="code fz-14">
-                                <span class="c-55">中奖码：</span>
-                                <span class="w-code c-ff">123</span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
-
             </div>
+            <div class="note fz-18 c-ff" v-if="notes">当前暂无活动</div>
 
-            <div class="cover flex col fl-align hide">
-                <div class="coupons-box flex col fl-align">
+            <div class="cover flex col fl-align" v-if="t_status==1" v-cloak>
+                <div class="coupons-box flex col fl-align" v-if="share==0">
                     <div class="coupon flex fl-align">
-                        <span class="fz-40 c-34">112</span>
+                        <span class="fz-40 c-34">{{ticket}}</span>
                     </div>
-                    <div class="getBtn" @click="gets"></div>
+                    <div class="getBtn" @click="invita"></div>
                 </div>
-                <i class="close" @click="closed"></i>
+                <div class="share-box flex col fl-align" v-if="share==1">
+                    <div class="share-img"></div>
+                    <div class="btn" @click="shares"></div>
+                    <canvas class="free-canvas" id="freeCanvas" width="750" height="1000"
+                        style="display: none;"></canvas>
+                </div>
+                <i class="close" @click="close"></i>
             </div>
-
         </div>
     </div>
 </body>
-<script src="js/jquery-3.0.0.min.js"></script>
-<script src="js/schedule.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="js/swiper.min.js"></script>
 <script>
     $(function () {
-
-        // 进度条
-        scheduleX({
-            fulfill: 60, //选择数
-            listAll: 100, //总数
-            speed: 25, //动画速度，可选，默认25,越小越快
-            again: false, //选择数改变动画是否从零开始，默认true从零开始
-            bgColor: "#FFE5DA", //底部颜色
-            listColor: "", //伸缩条颜色，默认原谅绿
-            scWidth: "200", //进度条宽度
-            scHeight: "15" //进度条高度
-        });
-
-        // 轮播
-        var mySwiper = new Swiper('.swiper-container', {
-            autoplay: true,
-            direction: 'vertical', // 垂直切换选项
-            loop: true, // 循环模式选项
-            slidesPerView: 3,
-            spaceBetween: 5,
-
+        $.ajax({
+            url: '/Treasure/notice',
+            type: 'get',
+            data: '',
+            dataType: 'json'
+        }).done(function (res) {
+            if (res.code == 200) {
+                let list = res.data
+                let html = ''
+                for (let i = 0; i < list.length; i++) {
+                    html += '<div class="swiper-slide b-change flex fl-align">' +
+                        '<div class="slide-info flex fl-align">' +
+                        '<i class="t-icon">' + '</i>' +
+                        '<span class="info fz-12 c-2d clamp1">' + list[i].text + '</span>' +
+                        '</div>' +
+                        '</div>'
+                }
+                $('.mid .swiper-container .swiper-wrapper').html(html);
+                var mySwiper = new Swiper('.swiper-container', {
+                    autoplay: true,
+                    direction: 'vertical',
+                    loop: true,
+                    slidesPerView: 3,
+                    spaceBetween: 5,
+                })
+            }
         })
     })
-</script>
-<script>
-    // 实例化
     new Vue({
         el: "#app",
         data: {
+            chosed: true,
             status: 1,
-            list_one:[],
-            list_two:[]
+            ticket: null,
+            t_status: 0,
+            alist: [],
+            bili: [],
+            info: [],
+            share: 0,
+            notes:false
         },
         created: function () {
-            this.getalist(1) //正在进行的活动列表
+            this.getTickets();
         },
-        methods: { //定义的方法
-
-
-            // 切换
-            changes: function (e) {
-                console.log(e);
-                // 更新status
-                this.status = e;
-                // 调用方法
-                this.getalist(e)
-
+        methods: {
+            // 获取优惠券数量
+            getTickets: function () {
+                let that = this
+                $.ajax({
+                    url: '/Treasure/myTicket',
+                    type: 'post',
+                    data: '',
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        that.ticket = res.data.ticket_count
+                        that.getalist(1);
+                    }
+                })
             },
-
+            // 显示优惠券窗口
+            toCoupons: function () {
+                this.t_status = 1;
+            },
+            // 隐藏优惠券窗口
+            close: function () {
+                this.t_status = 0;
+                this.share = 0;
+            },
+            // 邀请
+            invita: function () {
+                this.share = 1;
+            },
+            shares: function () {
+                let that = this
+                $.ajax({
+                    url: '/Treasure/getShareQrcode',
+                    type: 'get',
+                    data: '',
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        let codeimg = res.qr_url
+                        that.synthesisImg(codeimg);
+                    }
+                })
+            },
+            synthesisImg: function (code) {
+                var free_poster = '';
+                var canvas = document.getElementById('freeCanvas');
+                var ctx = canvas.getContext('2d');
+                var free_img = new Image();
+                free_img.setAttribute('crossOrigin', 'anonymous');
+                free_img.src = 'http://img.fqapps.com/7b0a766b6c763d573ae3c75e45d76e56';
+                free_img.onload = function () {
+                    ctx.drawImage(free_img, 0, 0, 750, 1000);
+                    // 二维码
+                    var code_img = new Image();
+                    code_img.setAttribute('crossOrigin', 'anonymous');
+                    code_img.src = code;
+                    code_img.onload = function () {
+                        ctx.drawImage(code_img, 277, 734, 196, 196);
+                        var code_image = new Image();
+                        code_image.setAttribute('crossOrigin', 'anonymous');
+                        code_image.src = canvas.toDataURL('img/png');
+                        free_poster = code_image.src;
+                        functionclick('B13002', 'image_base64', JSON.stringify({
+                            keyword: free_poster
+                        }));
+                    }
+                }
+            },
             // 获取活动列表
             getalist: function (e) {
+                let that = this
                 let param = {
                     status: e
                 }
-                console.log('参数为：', param);
-
+                $.ajax({
+                    url: '/Treasure/activityList',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        that.notes = false
+                        that.alist = res.data
+                    }
+                    else{
+                        that.alist=[]
+                        that.notes = true
+                    }
+                })
             },
-
+            // 切换
+            changes: function (e) {
+                this.status = e;
+                this.getalist(e)
+            },
             // 以下为：跳转
-            toCoupons: function () {},
             toMine: function () {
-                window.location.href = "Mine.html"
+                window.location.href = "mine.html"
             },
             toAddress: function () {
-                window.location.href = "Address.html"
+                window.location.href = "address.html"
             },
             toRules: function () {
-                window.location.href = "Rules.html"
+                window.location.href = "rules.html"
             },
             toRecord: function () {
-                window.location.href = "Record.html"
+                window.location.href = "record.html"
             },
             toShare: function () {
-                window.location.href = "Share.html"
+                this.t_status = 1;
+                this.share = 1;
             },
-            gets: function () {},
-            closed: function () {},
-            toDetail: function () {
-                // window.location.href = "Detail.html"
+            toDetail: function (e) {
+                // var detailUrl = "http://fdapp.m.efengqing.com/Treasure/detail.html?id=" + e;
+                // functionclick('B11031', 'go_to_detail', JSON.stringify({
+                //             keyword: detailUrl
+                //         }));
+                window.location.href = "detail.html?id=" + e;
             }
         }
 
