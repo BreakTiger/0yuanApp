@@ -1,0 +1,288 @@
+/* 基础 */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+}
+
+body,
+html,
+div,
+img,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body,
+html {
+    height: 100%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul {
+    padding: 0px;
+}
+
+/* 弹性 */
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.fl-align {
+    align-items: center;
+}
+
+.fl-jsb {
+    justify-content: space-between;
+}
+
+.fl-jse {
+    justify-content: space-evenly;
+}
+
+
+/* 文字大小 */
+.fz-10 {
+    font-size: 0.1rem;
+}
+
+.fz-11 {
+    font-size: 0.11rem;
+}
+
+.fz-12 {
+    font-size: 0.12rem;
+}
+
+.fz-13 {
+    font-size: 0.13rem;
+}
+
+.fz-14 {
+    font-size: 0.14rem;
+}
+
+.fz-15 {
+    font-size: 0.15rem;
+}
+
+.fz-16 {
+    font-size: 0.16rem;
+}
+
+.fz-17 {
+    font-size: 0.17rem;
+}
+
+.fz-18 {
+    font-size: 0.18rem;
+}
+
+.fz-20 {
+    font-size: 0.2rem;
+}
+
+.fz-24 {
+    font-size: 0.24rem;
+}
+
+.fz-30 {
+    font-size: 0.30rem;
+}
+
+.fz-40 {
+    font-size: 0.4rem;
+}
+
+
+/* 文字颜色 */
+
+.c-ff {
+    color: #ffffff;
+}
+
+.c-00 {
+    color: #000000;
+}
+
+.c-34 {
+    color: #E91C34
+}
+
+.c-99 {
+    color: #999999;
+}
+
+.c-64 {
+    color: #FE2D64;
+}
+
+.c-55 {
+    color: #FFA955;
+}
+
+.c-f0 {
+    color: #FFFF00
+}
+
+.c-33 {
+    color: #333333;
+}
+
+.c-47 {
+    color: #FFBC47
+}
+
+.c-18 {
+    color: #FFEC18
+}
+
+.c-2F {
+    color: #FF742F;
+}
+
+.c-66 {
+    color: #666666;
+}
+
+.c-2d {
+    color: #FEE32D;
+}
+
+.c-f5 {
+    color: #FFC555
+}
+
+.c-d64 {
+    color: #FE2D64
+}
+
+
+/* 文字粗细 */
+.f-wb {
+    font-weight: bold;
+}
+
+
+/* 背景色 */
+.b-ff {
+    background: #ffffff;
+}
+
+.b-change {
+    background: linear-gradient(#FD68CC, #51ECE4, #FD68CC);
+}
+
+/* 单行 */
+.clamp1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 俩行 */
+.clamp2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+}
+
+/* 其他 */
+.hide {
+    display: none !important;
+}
+
+/* 容器 */
+#app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.contents {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0rem;
+    z-index: 200;
+}
+
+.serial-one {
+    background: #FE2D64;
+}
+
+.serial-two {
+    background: #FFB03F;
+}
+
+.serial-three {
+    background: #FF742F;
+}
+
+.serial-four {
+    background: #6AB4FF;
+}
+
+
+.el-progress {
+    display: flex;
+}
+
+
+
+.el-progress-bar__inner {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #FF742F, #FE2D64)
+}
+
+
+/* alerts */
+.alerts {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0rem;
+    z-index: 200;
+}
+
+.alert-box {
+   margin: auto
+}
+
+.alert-info{
+    font-size: 0.14rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 4px;
+}

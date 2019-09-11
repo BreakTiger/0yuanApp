@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>活动详情</title>
+    <script src="/Public/app_treasure/js/flexible.min.js"></script>
+    <script src="/Public/app_treasure/js/jquery-3.0.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="/Public/app_treasure/js/swiper.min.js"></script>
+    <script src="/Public/app_treasure/js/index.js"></script>
+    <script src="/Public/app_treasure/js/public.js"></script>
+    <script type="text/javascript" src="/Public/assets/mobile/js/fdapp/functionclick.js?t=2"></script>
+    <script type="text/javascript" src="/Public/assets/mobile/js/fdapp/marquee.min.js"></script>
+    <link rel="stylesheet" href="/Public/app_treasure/css/common.css?t=20190909">
+    <link rel="stylesheet" href="/Public/app_treasure/css/icon.css">
+    <link rel="stylesheet" href="/Public/app_treasure/css/index.css">
+    <link rel="stylesheet" href="/Public/app_treasure/css/swiper.min.css">
+    <style>
+        .contents {height: auto;overflow: hidden;}
+        .swiper-container {width: 100%;height: 3.31rem;}
+        .swiper-slide>img {width: 100%;height: 100%;}
+        .line-two {width: 100%;background: linear-gradient(to right, #F61F38, #F632DA);}
+        .line-two>span {margin-left: 0.13rem;}
+        .line-two>span:last-child {line-height: 0.45rem;text-decoration: line-through;margin-right: 0.13rem;}
+        .names {width: 3.51rem;margin-bottom: 0.25rem;margin-top: 0.13rem;}
+        .press {width: 3.51rem;margin-bottom: 0.08rem;}
+        .people,.header-list {width: 3.51rem;margin-bottom: 0.1rem;}
+        .head {display: block;width: 0.2rem;height: 0.2rem;border-radius: 50%;margin-right: 0.17rem;}
+        .join-times {width: 3.51rem;margin-top: 0.1rem;margin-bottom: 0.25rem;}
+        .join-times>p {text-align: center;}
+        .count {height: 0.23rem;padding: 0 0.1rem;line-height: 0.23rem;box-shadow: 0 0 0.05rem 0 rgba(0, 0, 0, 0.13);border-radius: 0.05rem;}
+        .titles {margin-bottom: 0.17rem;}
+        .rules-contents {width: 3.51rem;border: 0.01rem solid #E9EAEC;margin-bottom: 0.6rem;border-radius: 0.1rem;}
+        .rules-content>span:nth-child(1) {margin-top: 0.2rem;}
+        .title {margin: 0.12rem 0 0.12rem 0.41rem;}
+        .list-conetnt {width: 100%;}
+        .list-conetnt .list-item {margin-bottom: 0.16rem;}
+        .list-item>span {display: block;width: 0.15rem;height: 0.15rem;text-align: center;line-height: 0.15rem;border-radius: 50%;margin-left: 0.19rem;margin-right: 0.07rem;}
+        .infos {width: 2.82rem;}
+        .button-one,.button-two {width: 100%;height: 0.5rem;position: fixed;bottom: 0rem;z-index: 200;}
+        .button-one>span,.button-two>span {display: block;width: 50%;height: 100%;text-align: center;line-height: 0.5rem;}
+        .share {background: linear-gradient(to right, #FFB03F, #FF742F);}
+        .nowget,.other {background: linear-gradient(to right, #F61F38, #F632DA);}
+        .win {width: 3.51rem;height: 0.4rem;background: linear-gradient(to right, #F61349, #D50032);border-radius: 0.1rem;margin-bottom: 0.1rem;}
+        .win .winner {margin-left: 0.1rem;}
+        .winner .boxs {background: #650015;border: 0.01px solid rgba(255, 236, 24, 0.5);border-radius: 0.11rem;padding: 0.03rem 0.08rem;margin-left: 0.03rem;}
+        .winer-header {width: 0.2rem;height: 0.2rem;border-radius: 50%;}
+        .win .code {margin-right: 0.1rem;}
+        .win .code>span:last-child {padding: 0.03rem 0.08rem;background: rgba(101, 0, 21, 1);border: 0.01rem solid rgba(255, 236, 24, 0.5);border-radius: 0.11rem;}
+        .note {width: 3.51rem;text-align: center;}
+        .myCode {width: 3.51rem;border: 0.01rem solid #E9EAEC;border-radius: 0.2rem;margin-bottom: 0.28rem;padding: 0.1rem 0;}
+        .code-content {width: 3.3rem;height: 1.2rem;margin-top: 0.15rem;flex-wrap: wrap;overflow: hidden;}
+        .shows {height: auto;overflow: auto;}
+        .code-content>span {display: block;width: 1.1rem;text-align: center;padding: 0.1rem 0;}
+        [v-cloak] {display: none;}
+        .el-progress-bar__outer {background: #ffd5b6 !important;}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="contents flex col fl-align">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                </div>
+            </div>
+            <div class="line-two flex fl-jsb">
+                <span class="fz-18 c-f0">
+                    ￥<span class="fz-30">0</span>
+                </span>
+                <span class="fz-15 c-ff">原价￥{{oprice}}</span>
+            </div>
+            <p class="names f-wb clamp2 fz-15 c-00">{{name}}</p>
+            <!-- 进度条 -->
+            <div class="press">
+                <el-progress :text-inside="true" :stroke-width="24" :percentage="rate" status="success"></el-progress>
+            </div>
+            <p class="people fz-13 flex fl-align fl-jsb" v-if="status==1||status==2">
+                <span class="c-34">已有{{joinning}}人参与夺宝中...</span>
+                <span class="c-99">需{{total}}人</span>
+            </p>
+            <p class="people fz-13 flex fl-align fl-jsb" v-if="status==3">
+                <span class="c-34">已开奖</span>
+                <span class="c-99">满{{total}}人</span>
+            </p>
+            <div class="header-list flex fl-align" v-if="status==1||status==2">
+                <img :src="item" alt="" class="head" v-for="(item,index) in headers" v-if="index<9" :key='index'>
+                <span class="fz-14" v-if="headers!== undefined && headers.length >9">...</span>
+            </div>
+            <div class="win flex fl-align fl-jsb fz-14 " v-if="status==3">
+                <div class="winner flex fl-align">
+                    <span class="c-f5">获奖者:</span>
+                    <div class="boxs flex fl-align">
+                        <img :src="win_log" class="winer-header">
+                        <span class="c-ff">{{win_phone}}</span>
+                    </div>
+                </div>
+                <div class="code">
+                    <span class="c-f5">中奖码:</span>
+                    <span class="c-ff">{{win_code}}</span>
+                </div>
+            </div>
+            <p class="note fz-12 c-99" v-if="status==3">幸运儿记得去填写您的收货地址哦，否则无法给您发货~</p>
+            <div class="join-times">
+                <p class="fz-14 c-2F">
+                    <span>您已参与</span>
+                    <span class="count b-ff">{{count}}</span>
+                    <span>次</span>
+                </p>
+                <p class="fz-10 c-99">（参与次数越多，中奖率越高哦）</p>
+            </div>
+            <div class="myCode flex col fl-align b-ff" v-if="codelist">
+                <span class="fz-13 f-wb c-00">我的夺宝码</span>
+                <div class="code-content flex fz-14 c-64" :class="showmore?'shows':''">
+                    <span v-for="item in codelist">{{item.code}}</span>
+                </div>
+                <span class="watchs fz-14 c-66" v-if="codelist!== undefined && codelist.length >9"
+                    @click="showMores">查看更多</span>
+            </div>
+
+            <span class="titles fz-16 c-33">活动规则</span>
+            <div class="rules-contents flex col">
+                <span class="title fz-14">说明</span>
+                <div class="list-conetnt flex col">
+                    <div class="list-item flex">
+                        <span class="serial-one fz-13 c-ff">1</span>
+                        <p class="infos fz-12 c-66">
+                            活动规则：活动期间，用户可使用夺宝券参与0元夺宝，通过计算中奖码得出中奖夺宝者。
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-one fz-13 c-ff">2</span>
+                        <div class="infos fz-12 c-66">
+                            <p>夺宝券</p>
+                            <p>1.每邀请1个新用户注册APP并成为有效合伙人，邀请人和被邀请人均可获得1张夺宝券</p>
+                            <p>2.每张夺宝券不限夺宝活动，但限制1张夺宝券只能参与1次夺宝，不得重复使用</p>
+                            <p>3.多张夺宝券可参与多个商品夺宝也可参与单一个商品的多次夺宝</p>
+                            <p>4.夺宝码即用于参与夺宝的一个8位数号码 ，按报名人数依次发放</p>
+                            <p>5.中奖夺宝码将由福袋生活按规则计算出的一个号码，持有该号码的用户即可获得该宝贝</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="title fz-14">中奖夺宝码</span>
+                <div class="list-conetnt flex col">
+                    <div class="list-item flex">
+                        <span class="serial-two fz-13 c-ff">1</span>
+                        <p class="infos fz-12 c-66">
+                            抽奖采用每日的随机数据，每期活动结束日当天晚上22：00左右公布
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-two fz-13 c-ff">2</span>
+                        <div class="infos fz-12 c-66">
+                            <p>活动结束后，中奖码按A/B的余数，余数+1为中奖码</p>
+                            <p>A：A为活动结束后最新一期体彩排列5开奖号码+开奖当天日期（例如：89986+20181123）</p>
+                            <p>B：对应夺宝商品的所需夺宝人数</p>
+                            <p>中奖夺宝码：A/B的余数+1，如20228449/4587=4409余4366+1=4367</p>
+                        </div>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-two fz-13 c-ff">3</span>
+                        <p class="infos fz-12 c-66">
+                            注：如遇体彩中心通讯故障，无法获取上述期数的体彩开奖结果，将会延长开奖时间，直到获取开奖结果。
+                        </p>
+                    </div>
+                </div>
+                <span class="title fz-14">夺宝规则</span>
+                <div class="list-conetnt flex col">
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">1</span>
+                        <p class="infos fz-12 c-66">
+                            每场夺宝活动都设置需满足所需的人次方可开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">2</span>
+                        <p class="infos fz-12 c-66">
+                            夺宝活动按活动结束当天一期的体彩排列5计算开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">3</span>
+                        <p class="infos fz-12 c-66">
+                            若该活动在当天20：30前满足人数，则在当天开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">4</span>
+                        <p class="infos fz-12 c-66">
+                            若该活动在当天20：30后满足人数，则在次日开奖
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">5</span>
+                        <p class="infos fz-12 c-66">
+                            如发现参与者在参与过程中存在利用漏洞、恶意攻击或欺诈行为，福袋生活将取消该帐号的本次夺宝资格。
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-three fz-13 c-ff">6</span>
+                        <p class="infos fz-12 c-66">
+                            如遇不可抗力、平台系统发生故障、遭受第三方攻击或其他无法控制 的情形 ，福袋生活平台有权取消该次夺宝活动。
+                        </p>
+                    </div>
+                </div>
+                <span class="title fz-14">关于中奖</span>
+                <div class="list-conetnt flex col">
+                    <div class="list-item flex">
+                        <span class="serial-four fz-13 c-ff">1</span>
+                        <p class="infos fz-12 c-66">
+                            夺宝成功后，福袋生活平台将会在7个工作日内核实发货，具体信息可在【我的夺宝】查看。
+                        </p>
+                    </div>
+                    <div class="list-item flex">
+                        <span class="serial-four fz-13 c-ff">2</span>
+                        <p class="infos fz-12 c-66">
+                            如快递无法配送至获奖者提供的送货地址，将默认配送到距离最近的送货地，由获奖者本人自提。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-one flex fl-align fz-16 c-ff" v-if="status==1||status==2">
+                <span class="share" @click="shares">分享好友</span>
+                <span class="nowget" @click="GetNow" v-if="status==1">马上夺宝</span>
+                <span class="nowget" v-if="status==2">等待开奖</span>
+            </div>
+            <div class="button-two flex fl-align fz-16 c-ff" v-if="status==3">
+                <span class="share" @click="shares">分享好友</span>
+                <span class="other" @click="others" v-if="winnner==0">活动已开奖，看看其他</span>
+                <span class="other" @click="ToAddress" v-if="winnner==1">去领奖吧</span>
+            </div>
+        </div>
+        <div class="cover flex col fl-align" v-if="covers==1" v-cloak>
+            <div class="share-box flex col fl-align">
+                <div class="share-img"></div>
+                <div class="btn" @click="shareBtn"></div>
+                <!-- 合成图片 -->
+                <canvas class="free-canvas" id="freeCanvas" width="750" height="1000" style="display: none;"></canvas>
+            </div>
+            <i class="close" @click="close"></i>
+        </div>
+
+    </div>
+</body>
+<script>
+    let id = GetQueryString('id');
+    $(function () {
+        let param = {
+            activity_id: id
+        }
+        $.ajax({
+            url: '/Treasure/treasureDetail',
+            type: 'post',
+            data: param,
+            dataType: 'json'
+        }).done(function (res) {
+            let status = res.code
+            if (status = 200) {
+                let img = res.data.images
+                let html = ''
+                for (let i = 0; i < img.length; i++) {
+                    html += '<div class="swiper-slide">' +
+                        '<img src=' + img[i] + ' alt="">' +
+                        '</div>'
+                }
+                $('.swiper-container .swiper-wrapper').html(html);
+                var swiper = new Swiper('.swiper-container');
+            }
+        })
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            status: null,
+            name: '',
+            rate: '',
+            oprice: '',
+            joinning: '',
+            total: '',
+            headers: [],
+            count: '',
+            win_log: '',
+            win_phone: '',
+            win_code: '',
+            covers: 0,
+            winnner: null,
+            codelist: [],
+            showmore: false
+        },
+        created: function () {
+            this.getinfo()
+        },
+        methods: {
+            getinfo: function () {
+                let that = this
+                let param = {
+                    activity_id: id
+                }
+                $.ajax({
+                    url: '/Treasure/treasureDetail',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        let data = res.data
+                        that.name = data.name
+                        that.rate = data.rate
+                        that.oprice = data.cost_money
+                        let status = data.status
+                        that.status = status
+                        that.winnner = data.winners
+                        if (status == 1 || status == 2) {
+                            that.joinning = data.now_number
+                            that.total = data.final_number
+                            that.headers = data.getParticipant
+                            that.count = data.join_number
+                        } else {
+                            that.total = data.final_number
+                            that.count = data.join_number
+                            that.win_log = data.win_logo
+                            that.win_phone = data.win_phone
+                            that.win_code = data.win_code
+                        }
+                        that.myCode();
+                    }
+                })
+            },
+            myCode: function () {
+                let that = this
+                let param = {
+                    activity_id: id
+                }
+                $.ajax({
+                    url: '/Treasure/myCode',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code = 200) {
+                        that.codelist = res.data
+                    }
+                })
+            },
+            showMores: function () {
+                this.showmore = true
+                $('.watchs').hide();
+            },
+            others: function () {
+                window.location.href = "home.html"
+            },
+            GetNow: function () {
+                let that = this
+                let param = {
+                    activity_id: id
+                }
+                $.ajax({
+                    url: '/Treasure/partake',
+                    type: 'post',
+                    data: param,
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 0) {
+                        that.mst('参与成功！', 0)
+                    } else {
+                        that.mst(res.msg);
+                    }
+                })
+            },
+            mst: function (text, id) {
+                var msgHtml = '<div class="alerts flex col fl-align">' +
+                    '<div class="alert-box flex col fl-align">' +
+                    '<p class="alert-info">' + text + '</p>' +
+                    '</div>' +
+                    '</div>';
+                $('#app').append(msgHtml);
+                setTimeout(function () {
+                    $('.alerts').remove();
+                    if (id == 0) {
+                        window.location.reload()
+                    }
+                }, 2000);
+            },
+            shares: function () {
+                this.covers = 1;
+            },
+            close: function () {
+                this.covers = 0;
+            },
+            ToAddress: function () {
+                window.location.href = 'address.html'
+            },
+            shareBtn: function () {
+                let that = this
+                $.ajax({
+                    url: '/Treasure/getShareQrcode',
+                    type: 'get',
+                    data: '',
+                    dataType: 'json'
+                }).done(function (res) {
+                    if (res.code == 200) {
+                        let codeimg = res.qr_url
+                        that.synthesisImg(codeimg);
+                    }
+                })
+            },
+            synthesisImg: function (code) {
+                var free_poster = '';
+                var canvas = document.getElementById('freeCanvas');
+                var ctx = canvas.getContext('2d');
+                var free_img = new Image();
+                free_img.setAttribute('crossOrigin', 'anonymous');
+                free_img.src = 'http://img.fqapps.com/7b0a766b6c763d573ae3c75e45d76e56';
+                free_img.onload = function () {
+                    ctx.drawImage(free_img, 0, 0, 750, 1000);
+                    // 二维码
+                    var code_img = new Image();
+                    code_img.setAttribute('crossOrigin', 'anonymous');
+                    code_img.src = code;
+                    code_img.onload = function () {
+                        ctx.drawImage(code_img, 277, 734, 196, 196);
+                        var code_image = new Image();
+                        code_image.setAttribute('crossOrigin', 'anonymous');
+                        code_image.src = canvas.toDataURL('img/png');
+                        free_poster = code_image.src;
+                        functionclick('B13002', 'image_base64', JSON.stringify({
+                            keyword: free_poster
+                        }));
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</html>
